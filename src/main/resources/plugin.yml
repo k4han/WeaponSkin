@@ -1,6 +1,6 @@
 
 name: WeaponSkin
-version: '1.0.0'
+version: '${version}'
 main: me.k4han.weaponSkin.WeaponSkin
 api-version: '1.21'
 authors: [ k4han ]

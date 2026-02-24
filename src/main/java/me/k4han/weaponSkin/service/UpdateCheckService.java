@@ -17,7 +17,7 @@ public class UpdateCheckService {
     private final Logger logger;
     private final LanguageManager languageManager;
 
-    private static final String PLUGIN_YML_URL = "https://raw.githubusercontent.com/k4han/weaponskin/main/src/main/resources/plugin.yml";
+    private static final String BUILD_GRADLE_URL = "https://raw.githubusercontent.com/k4han/weaponskin/main/build.gradle";
 
     public UpdateCheckService(WeaponSkin plugin) {
         this.plugin = plugin;
@@ -33,13 +33,13 @@ public class UpdateCheckService {
 
         Bukkit.getScheduler().runTaskLaterAsynchronously(plugin, () -> {
             try {
-                URL url = new URL(PLUGIN_YML_URL);
+                URL url = new URL(BUILD_GRADLE_URL);
                 HttpURLConnection connection = (HttpURLConnection) url.openConnection();
                 connection.setRequestMethod("GET");
                 connection.setConnectTimeout(5000);
                 connection.setReadTimeout(5000);
-                // fake user-agent like a browser to prevent 403 from some free hosts
-                connection.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64)");
+                // Sử dụng User-Agent riêng của plugin để tránh bị chặn (HTTP 403) bởi GitHub
+                connection.setRequestProperty("User-Agent", "WeaponSkin/" + currentVersion);
                 
                 int status = connection.getResponseCode();
                 
@@ -50,7 +50,7 @@ public class UpdateCheckService {
                     
                     String newUrl = connection.getHeaderField("Location");
                     connection = (HttpURLConnection) new URL(newUrl).openConnection();
-                    connection.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64)");
+                    connection.setRequestProperty("User-Agent", "WeaponSkin/" + currentVersion);
                     status = connection.getResponseCode();
                 }
 
@@ -64,8 +64,8 @@ public class UpdateCheckService {
                 String latestVersion = null;
 
                 while ((line = reader.readLine()) != null) {
-                    if (line.startsWith("version:")) {
-                        latestVersion = line.split(":")[1].trim();
+                    if (line.startsWith("version =")) {
+                        latestVersion = line.split("=")[1].trim();
                         latestVersion = latestVersion.replace("'", "").replace("\"", "");
                         break;
                     }
@@ -73,7 +73,7 @@ public class UpdateCheckService {
                 reader.close();
 
                 if (latestVersion == null) {
-                    logger.warning(languageManager.getMessage("info.update-check-failed").replace("{message}", "Version not found in plugin.yml"));
+                    logger.warning(languageManager.getMessage("info.update-check-failed").replace("{message}", "Version not found in build.gradle"));
                     return;
                 }
 
