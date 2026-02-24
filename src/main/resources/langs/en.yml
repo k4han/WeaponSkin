@@ -1,0 +1,126 @@
+# WeaponSkin Language File - English
+# Placeholders: {player}, {skinId}, {amount}, {url}, {count}, {usage}
+
+commands:
+  no-permission: "&cYou don't have permission to use this command!"
+  usage: "&cUsage: {usage}"
+  player-not-online: "&cPlayer &e{player} &cis not online!"
+  skin-not-found: "&cSkin &e{skinId} &cdoes not exist!"
+  invalid-amount: "&cInvalid amount: &e{amount}"
+  
+  give:
+    success: "&aGave &e{amount} &askin item &e{skinId} &ato &e{player}"
+    receive: "&aYou received &e{amount} &askin item: &e{skinId}"
+  
+  remove:
+    success: "&aGave &e{amount} &aSkin Remover to &e{player}"
+    receive: "&aYou received &e{amount} &aSkin Remover!"
+  
+  list:
+    header: "&6=== Skin List ==="
+    entry: "&e{skinId} &7| Materials: {materials}"
+  
+  reload:
+    success: "&aReloaded config, skins, language, and host settings!"
+  
+  pack:
+    building: "&7Building resource pack..."
+    syntax: "&cUsage: /weaponskin pack <build|apply>"
+    host-unavailable: "&cAuto-host is not available (provider is not item_model or host.enabled = false)"
+    
+    build:
+      success-self-host: "&aBuild successful! Pack served at: &f{url}"
+      success-external: "&aBuild successful!"
+      file-info: "&ePack file: &f{file}"
+      sha1-info: "&eSHA1: &f{sha1}"
+      players-info: "&aPushed to &e{count} &aplayer(s) online"
+      auto-allocated: "&eAuto-allocated custom_model_data and updated items.yml"
+      warning: "&eWARNING: &7{message}"
+      external-info: "&6Please upload this file to your external host."
+      external-apply: "&6Then run: &e/skin pack apply <url>"
+    
+    apply:
+      syntax: "&cUsage: /weaponskin pack apply <url>"
+      info: "&7Apply pack after uploading to external host."
+      no-pending: "&cNo pending pack. Run /skin pack build first."
+      pack-file-missing: "&cPack file no longer exists. Please rebuild."
+      success: "&aApplied pack to &e{count} &aplayer(s) online"
+      url-info: "&eURL: &f{url}"
+      sha1-info: "&eSHA1: &f{sha1}"
+      error: "&cFailed to apply pack. An error occurred."
+
+  help:
+    header: "&6=== WeaponSkin Commands ==="
+    give: "&e/weaponskin give <player> <skinId> [amount] &7- Give skin item"
+    remove: "&e/weaponskin remove <player> [amount] &7- Give remove-skin item"
+    remover: "&e/weaponskin remover <player> [amount] &7- Alias for /weaponskin remove"
+    list: "&e/weaponskin list &7- View skin list"
+    reload: "&e/weaponskin reload &7- Reload config"
+    pack-build: "&e/weaponskin pack build &7- Build resource pack"
+    pack-apply: "&e/weaponskin pack apply <url> &7- Apply pack (external-host)"
+    alias: "&7Alias: &e/ws &7can be used instead of &e/weaponskin"
+
+errors:
+  build-failed: "&cBuild pack failed: &f{message}"
+  build-io-error: "&cBuild pack IO error: &f{message}"
+  build-error: "&cBuild pack error: &f{message}"
+  command-missing: "&cCommand 'weaponskin' is missing from plugin.yml. Plugin will run without command support."
+  server-start-failed: "&cFailed to start Pack HTTP server on port {port}: {message}"
+  server-start-severe: "&cResource pack auto-host will not work. Please check if port is already in use."
+  sha1-failed: "&cFailed to calculate SHA1 for existing pack: {message}"
+  validation-missing-model: "&cValidation: Skin '{skinId}' requires model_id '{modelId}' but not found in any items.yml file!"
+  validation-missing-count: "&cValidation: {count} skin(s) have invalid model_id. Running '/skin pack build' will fail or skins will not work."
+  unknown-sound: "&cUnknown sound '{sound}', using fallback."
+  unknown-material: "&cUnknown material '{material}' in skin: {skinId}"
+  language-not-found: "&cLanguage file '{lang}.yml' not found. Using English as fallback."
+
+info:
+  plugin-enabled: "&aWeaponSkinPlugin enabled successfully!"
+  plugin-disabled: "&cWeaponSkinPlugin disabled."
+  skins-loaded: "&aLoaded {count} skin(s)."
+  pack-format: "&ePack format: {format} (auto-detected from server version)"
+  validation-ok: "&aValidation: all model_ids are valid."
+  existing-pack-found: "&aFound existing pack: {path}"
+  existing-pack-loaded: "&aLoaded existing pack. SHA1: {sha1}"
+  external-host-mode: "&eExternal-host mode: Skipping auto-build."
+  external-host-info: "&ePlease run /skin pack build, then upload the pack to your external host."
+  no-skins: "&eNo skins defined in config. Skipping auto-build."
+  auto-build-start: "&aNo existing pack found. Auto-building resource pack..."
+  auto-build-skins: "&eFound {count} skin(s) in config."
+  auto-build-done: "&aAuto-build completed successfully!"
+  auto-build-file: "&ePack file: {file}"
+  auto-build-sha1: "&eSHA1: {sha1}"
+  auto-build-pushed: "&aPushed to &e{count} &aplayer(s) online"
+  auto-host-external: "&eAuto-host using external-host mode"
+  auto-host-disabled: "&eAuto-host is disabled (host.enabled = false)"
+  auto-host-wrong-provider: "&eAuto-host only available with effective provider = item_model (current: {provider})"
+  pack-build-start: "&aBuild completed successfully!"
+  pack-no-existing: "&eNo existing pack. Build with /skin pack build and upload to your external host."
+  update-available: "&a[Update] &eA new version of WeaponSkin ({version}) is available! Please download it."
+  update-latest: "&a[Update] &aYou are using the latest version of WeaponSkin."
+  update-check-failed: "&c[Update] &cFailed to check for updates: {message}"
+
+items:
+  skin:
+    display-name: "&6Skin: &e{skinId}"
+    lore-materials: "&7For: &f{materials}"
+    lore-apply: "&7Drag onto weapon to apply"
+    lore-preview: "&eShift + Right Click to preview"
+  remover:
+    display-name: "&cSkin Remover"
+    lore-remove: "&7Drag onto weapon to remove skin"
+    lore-single-use: "&cSingle use"
+
+preview:
+  invalid-item: "&cInvalid skin item."
+  skin-not-found: "&cSkin does not exist in config."
+  cannot-preview: "&cCannot create preview for this skin."
+  start: "&7[Preview] &eSkin &6{skinId} &e— showing for 5 seconds."
+  cooldown: "&cPlease wait {seconds}s before previewing again."
+
+apply:
+  skin-not-found: "&cSkin does not exist in config!"
+  cannot-apply: "&cCannot apply skin! Weapon may already have a skin or is invalid."
+  success: "&aSkin &e{skinId} &ahas been applied!"
+  remove-no-skin: "&cThis weapon has no skin!"
+  remove-success: "&aSkin has been removed!"

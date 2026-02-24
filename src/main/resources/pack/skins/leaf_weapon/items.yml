@@ -1,0 +1,29 @@
+# plugins/WeaponSkin/pack/skins/leaf_weapon/items.yml
+#
+# Pack builder reads every skins/*/items.yml and merges them into pack/content/.
+# Admin should only edit files under skins/.
+#
+# Fields:
+#   base: (optional) Material base. Only needed for Oraxen provider or legacy support (pre-1.21.4).
+#         For item_model provider (1.21.4+), base is NOT required.
+#
+#   model: Path to model JSON file (without .json extension)
+#          If omitted, the plugin will auto-generate a simple model using 'parent_model' and 'texture'.
+#   parent_model: Parent model for auto-generation (default: item/handheld, only used if 'model' is omitted)
+#   texture: Path to texture PNG file (without .png extension)
+#          If 'model' is omitted, this field is REQUIRED for auto-generation.
+namespace: leaf_weapon
+
+items:
+  leaf_diamond_sword:
+    # Case 1: Model provided
+    # When declaring 'model', this path will point to the physical model file in skins/<namespace>/models/...
+    # The system will copy this file and automatically scan the textures inside it to copy along.
+    model: item/diamond_sword
+
+  item_without_model:
+    # Case 2: Model NOT provided
+    # When NOT declaring 'model', you must provide 'texture'.
+    # The system will automatically generate a JSON model file (with 1 layer0 being this texture).
+    parent_model: item/handheld  # (Optional) If omitted, defaults to item/handheld
+    texture: item/short_diamond_sword

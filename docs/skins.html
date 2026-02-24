@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="WeaponSkin Custom Skins Guide - Learn how to create and add custom weapon skins">
+    <title>Custom Skins - WeaponSkin Documentation</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <button class="menu-toggle" onclick="toggleSidebar()">&#9776;</button>
+
+    <div class="container">
+        <!-- Sidebar -->
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-logo">
+                    <span class="sidebar-logo-icon">&#9876;</span>
+                    <span class="sidebar-logo-text">WeaponSkin</span>
+                </a>
+            </div>
+            <div class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-section-title">Getting Started</div>
+                    <a href="index.html" class="nav-link">
+                        <span class="nav-link-icon">&#127968;</span>
+                        <span>Overview</span>
+                    </a>
+                    <a href="installation.html" class="nav-link">
+                        <span class="nav-link-icon">&#128229;</span>
+                        <span>Installation</span>
+                    </a>
+                    <a href="configuration.html" class="nav-link">
+                        <span class="nav-link-icon">&#9881;</span>
+                        <span>Configuration</span>
+                    </a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-section-title">Documentation</div>
+                    <a href="commands.html" class="nav-link">
+                        <span class="nav-link-icon">&#128187;</span>
+                        <span>Commands</span>
+                    </a>
+                    <a href="permissions.html" class="nav-link">
+                        <span class="nav-link-icon">&#128274;</span>
+                        <span>Permissions</span>
+                    </a>
+                    <a href="skins.html" class="nav-link active">
+                        <span class="nav-link-icon">&#127912;</span>
+                        <span>Custom Skins</span>
+                    </a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-section-title">Links</div>
+                    <a href="https://github.com/k4han/WeaponSkin" class="nav-link" target="_blank">
+                        <span class="nav-link-icon">&#128230;</span>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="https://github.com/k4han/WeaponSkin/issues" class="nav-link" target="_blank">
+                        <span class="nav-link-icon">&#128027;</span>
+                        <span>Report Issue</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="page-header">
+                <h1 class="page-title">
+                    <span>&#127912;</span>
+                    <span>Custom Skins</span>
+                </h1>
+                <p class="page-description">Learn how to create and add your own custom weapon skins to WeaponSkin.</p>
+            </header>
+
+            <!-- Overview -->
+            <section>
+                <h2>&#128450; Overview</h2>
+                <p>WeaponSkin allows you to add custom weapon skins using the built-in resource pack system. This guide
+                    will walk you through creating and adding your own skins.</p>
+
+                <div class="alert alert-info">
+                    <div class="alert-title">&#128161; Requirements</div>
+                    <p>Custom skins require the <code>item_model</code> provider (Minecraft 1.21.4+) or Oraxen. This
+                        guide focuses on the built-in <code>item_model</code> provider.</p>
+                </div>
+            </section>
+
+            <!-- Directory Structure -->
+            <section>
+                <h2>&#128193; Directory Structure</h2>
+                <p>Skin assets are placed in the <code>plugins/WeaponSkin/pack/skins/</code> directory. Each skin set
+                    has its own folder with the following structure:</p>
+
+                <div class="file-tree">
+                    <div class="file-tree-item"><span class="file-tree-folder">&#128193; pack/skins/</span></div>
+                    <div class="file-tree-item" style="padding-left: 1.5rem;"><span class="file-tree-folder">&#128193;
+                            <span class="var-namespace">&lt;namespace&gt;</span>/</span></div>
+                    <div class="file-tree-item" style="padding-left: 3rem;"><span class="file-tree-file">&#128196;
+                            items.yml</span></div>
+                    <div class="file-tree-item" style="padding-left: 3rem;"><span class="file-tree-folder">&#128193;
+                            models/</span></div>
+                    <div class="file-tree-item" style="padding-left: 4.5rem;"><span class="file-tree-folder">&#128193;
+                            item/</span></div>
+                    <div class="file-tree-item" style="padding-left: 6rem;"><span class="file-tree-file">&#128196; <span
+                                class="var-model">&lt;model_name&gt;</span>.json</span></div>
+                    <div class="file-tree-item" style="padding-left: 3rem;"><span class="file-tree-folder">&#128193;
+                            textures/</span></div>
+                    <div class="file-tree-item" style="padding-left: 4.5rem;"><span class="file-tree-folder">&#128193;
+                            item/</span></div>
+                    <div class="file-tree-item" style="padding-left: 6rem;"><span class="file-tree-file">&#127912; <span
+                                class="var-texture">&lt;texture_name&gt;</span>.png</span></div>
+                </div>
+
+                <h3>File Descriptions</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>File</th>
+                            <th>Purpose</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>items.yml</code></td>
+                            <td>Defines the skin items and their properties (namespace, model path, texture path)</td>
+                        </tr>
+                        <tr>
+                            <td><code>models/item/<span class="var-model">&lt;model_name&gt;</span>.json</code></td>
+                            <td>Minecraft model JSON files for the custom items (can be 3D custom models)</td>
+                        </tr>
+                        <tr>
+                            <td><code>textures/item/<span class="var-texture">&lt;texture_name&gt;</span>.png</code>
+                            </td>
+                            <td>Texture files for the models (PNG format, typically 16x16 or 32x32)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Creating a Skin -->
+            <section>
+                <h2>&#128295; Creating a Custom Skin</h2>
+
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-title">Create Skin Folder</div>
+                        <div class="step-content">
+                            <p>Create a new folder in <code>pack/skins/</code> with your <span
+                                    class="var-namespace">&lt;namespace&gt;</span>:</p>
+                            <pre><code>pack/skins/<span class="var-namespace">&lt;namespace&gt;</span>/</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-title">Create the Texture</div>
+                        <div class="step-content">
+                            <p>Create a PNG texture file (typically 16x16 or 32x32 pixels for Minecraft items) and place
+                                it in:</p>
+                            <pre><code>pack/skins/<span class="var-namespace">&lt;namespace&gt;</span>/textures/item/<span class="var-texture">&lt;texture_name&gt;</span>.png</code></pre>
+                            <div class="alert alert-info">
+                                <div class="alert-title">&#128161; Tip</div>
+                                <p>You can use tools like <a href="https://www.blockbench.net/"
+                                        target="_blank">Blockbench</a> to create and export Minecraft item textures and
+                                    models.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-title">Create the Model JSON</div>
+                        <div class="step-content">
+                            <p>Create a model JSON file in:</p>
+                            <pre><code>pack/skins/<span class="var-namespace">&lt;namespace&gt;</span>/models/item/<span class="var-model">&lt;model_name&gt;</span>.json</code></pre>
+                            <p>Example custom 3D model file:</p>
+                            <pre><code>{
+    "credit": "Made by <span class="var-your-name">&lt;your_name&gt;</span>",
+    "texture_size": [ 32, 32 ],
+    "textures": {
+        "0": "<span class="var-namespace">&lt;namespace&gt;</span>:item/<span class="var-texture">&lt;texture_name&gt;</span>",
+        "particle": "<span class="var-namespace">&lt;namespace&gt;</span>:item/<span class="var-texture">&lt;texture_name&gt;</span>"
+    },
+    "elements": [
+        {
+            "from": [ 7.4, -8.65, 6.4 ],
+            "to": [ 8.6, -5.45, 9.6 ],
+            "rotation": { "angle": -45, "axis": "x", "origin": [ 8, -7.05, 8 ] },
+            "faces": {
+                "north": { "uv": [ 1, 9, 1.5, 10.5 ], "texture": "#0" },
+                "east": { "uv": [ 5, 0, 6.5, 1.5 ], "texture": "#0" },
+                "south": { "uv": [ 1.5, 9, 2, 10.5 ], "texture": "#0" },
+                "west": { "uv": [ 5, 1.5, 6.5, 3 ], "texture": "#0" },
+                "up": { "uv": [ 2.5, 10.5, 2, 9 ], "texture": "#0" },
+                "down": { "uv": [ 3, 9, 2.5, 10.5 ], "texture": "#0" }
+            }
+        }
+        // ... more elements
+    ],
+    "display": {
+        "thirdperson_righthand": { "translation": [ 0, 9, 1.5 ] },
+        "thirdperson_lefthand": { "translation": [ 0, 9, 1.5 ] },
+        "firstperson_righthand": { "translation": [ 0, 9, 1.5 ] },
+        "firstperson_lefthand": { "translation": [ 0, 9, 1.5 ] },
+        "ground": { "rotation": [ 90, 90, 0 ] },
+        "gui": { "rotation": [ 90, 45, -90 ], "translation": [ 2, 2, 0 ] }
+    }
+}</code></pre>
+                            <div class="alert alert-info">
+                                <div class="alert-title">&#128161; Note</div>
+                                <p>The texture reference uses the format
+                                    <code><span class="var-namespace">&lt;namespace&gt;</span>:item/<span class="var-texture">&lt;texture_name&gt;</span></code>
+                                    where <span class="var-namespace">&lt;namespace&gt;</span> matches your folder name
+                                    and items.yml namespace.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-title">Create items.yml</div>
+                        <div class="step-content">
+                            <p>Create the <code>items.yml</code> file in your skin folder:</p>
+                            <pre><code># plugins/WeaponSkin/pack/skins/<span class="var-namespace">&lt;namespace&gt;</span>/items.yml
+namespace: <span class="var-namespace">&lt;namespace&gt;</span>
+
+items:
+  <span class="var-item-id">&lt;item_id&gt;</span>:
+    # Case 1: Model provided
+    # The system will copy the model and automatically scan its textures.
+    model: item/<span class="var-model">&lt;model_name&gt;</span>
+
+  <span class="var-item-id-2">&lt;item_id_2&gt;</span>:
+    # Case 2: Model NOT provided
+    # The system will automatically generate a JSON model (1 layer0).
+    parent_model: item/handheld  # (Optional) Defaults to item/handheld
+    texture: item/<span class="var-texture">&lt;texture_name&gt;</span></code></pre>
+                            <h4>Field Descriptions</h4>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Field</th>
+                                        <th>Required</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><code>namespace</code></td>
+                                        <td><span class="badge badge-required">Yes</span></td>
+                                        <td>Unique namespace for your skin set (must match folder name)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>base</code></td>
+                                        <td><span class="badge badge-optional">No</span></td>
+                                        <td>Base material for Oraxen or legacy support (not needed for item_model
+                                            provider)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>model</code></td>
+                                        <td><span class="badge badge-optional">No</span></td>
+                                        <td>Path to model JSON (without .json extension). If omitted, the plugin
+                                            auto-generates a model.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>parent_model</code></td>
+                                        <td><span class="badge badge-optional">No</span></td>
+                                        <td>Parent model for auto-generation. Default: <code>item/handheld</code>. Only
+                                            used if 'model' is omitted.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>texture</code></td>
+                                        <td><span class="badge badge-optional">Depends</span></td>
+                                        <td>Path to texture PNG (without .png extension). REQUIRED if 'model' is omitted
+                                            to auto-generate the single layer.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-title">Register in skins.yml</div>
+                        <div class="step-content">
+                            <p>Add your skin to <code>plugins/WeaponSkin/skins.yml</code>:</p>
+                            <pre><code><span class="var-skin-id">&lt;skin_id&gt;</span>:
+  model_id: <span class="var-item-id">&lt;item_id&gt;</span>
+  allowed_materials:
+    - DIAMOND_SWORD
+    - NETHERITE_SWORD</code></pre>
+                            <p>The <code>model_id</code> must match the <span class="var-item-id">&lt;item_id&gt;</span>
+                                key in your <code>items.yml</code> file.</p>
+                            <div class="alert alert-info">
+                                <div class="alert-title">&#128161; Note</div>
+                                <p>The <span class="var-skin-id">&lt;skin_id&gt;</span> is the identifier for the skin
+                                    in skins.yml (used for commands, permissions, etc.), while <span
+                                        class="var-namespace">&lt;namespace&gt;</span> is for resource pack asset
+                                    organization. They can be the same or different.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-title">Build the Resource Pack</div>
+                        <div class="step-content">
+                            <p>Run the build command to generate the resource pack:</p>
+                            <pre><code>/ws pack build</code></pre>
+                            <p>This will:</p>
+                            <ul>
+                                <li>Process all skin folders in <code>pack/skins/</code></li>
+                                <li>Generate the resource pack with all models and textures</li>
+                                <li>Host the pack (if self-host is enabled)</li>
+                                <li>Push the pack to online players</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Example Skin -->
+            <section>
+                <h2>&#128221; Complete Example: Leaf Weapon Skin</h2>
+                <p>Here's a complete example of the included <code>leaf_weapon</code> skin:</p>
+
+                <h3>Directory Structure</h3>
+                <div class="file-tree">
+                    <div class="file-tree-item"><span class="file-tree-folder">&#128193; pack/skins/leaf_weapon/</span>
+                    </div>
+                    <div class="file-tree-item" style="padding-left: 1.5rem;"><span class="file-tree-file">&#128196;
+                            items.yml</span></div>
+                    <div class="file-tree-item" style="padding-left: 1.5rem;"><span class="file-tree-folder">&#128193;
+                            models/item/</span></div>
+                    <div class="file-tree-item" style="padding-left: 3rem;"><span class="file-tree-file">&#128196;
+                            diamond_sword.json</span></div>
+                    <div class="file-tree-item" style="padding-left: 1.5rem;"><span class="file-tree-folder">&#128193;
+                            textures/item/</span></div>
+                    <div class="file-tree-item" style="padding-left: 3rem;"><span class="file-tree-file">&#127912;
+                            diamond_sword.png</span></div>
+                </div>
+
+                <h3>items.yml</h3>
+                <pre><code># plugins/WeaponSkin/pack/skins/leaf_weapon/items.yml
+namespace: leaf_weapon
+
+items:
+  leaf_diamond_sword:
+    model: item/diamond_sword
+
+  item_without_model:
+    parent_model: item/handheld
+    texture: item/short_diamond_sword</code></pre>
+
+                <h3>models/item/diamond_sword.json</h3>
+                <pre><code>{
+    "credit": "Made by leaf studio",
+    "texture_size": [ 32, 32 ],
+    "textures": {
+        "0": "leaf_weapon:item/diamond_sword",
+        "particle": "leaf_weapon:item/diamond_sword"
+    },
+    "elements": [
+        {
+            "from": [ 7.4, -8.65, 6.4 ],
+            "to": [ 8.6, -5.45, 9.6 ],
+            "rotation": { "angle": -45, "axis": "x", "origin": [ 8, -7.05, 8 ] },
+            "faces": {
+                "north": { "uv": [ 1, 9, 1.5, 10.5 ], "texture": "#0" },
+                "east": { "uv": [ 5, 0, 6.5, 1.5 ], "texture": "#0" },
+                "south": { "uv": [ 1.5, 9, 2, 10.5 ], "texture": "#0" },
+                "west": { "uv": [ 5, 1.5, 6.5, 3 ], "texture": "#0" },
+                "up": { "uv": [ 2.5, 10.5, 2, 9 ], "texture": "#0" },
+                "down": { "uv": [ 3, 9, 2.5, 10.5 ], "texture": "#0" }
+            }
+        }
+        // ... more elements for the full 3D sword model
+    ],
+    "display": {
+        "thirdperson_righthand": { "translation": [ 0, 9, 1.5 ] },
+        "thirdperson_lefthand": { "translation": [ 0, 9, 1.5 ] },
+        "firstperson_righthand": { "translation": [ 0, 9, 1.5 ] },
+        "firstperson_lefthand": { "translation": [ 0, 9, 1.5 ] },
+        "ground": { "rotation": [ 90, 90, 0 ] },
+        "gui": { "rotation": [ 90, 45, -90 ], "translation": [ 2, 2, 0 ] },
+        "fixed": { "rotation": [ -90, 45, 90 ], "translation": [ -2, 2, 0 ] }
+    },
+    "groups": [
+        {
+            "name": "sword",
+            "origin": [ 7.99, 1.07322, 5.33421 ],
+            "color": 0,
+            "children": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ]
+        }
+    ]
+}</code></pre>
+
+                <h3>skins.yml Entry</h3>
+                <pre><code>leaf_weapon:
+  model_id: leaf_diamond_sword
+  allowed_materials:
+    - DIAMOND_SWORD
+    - NETHERITE_SWORD
+
+short_diamond_sword:
+  model_id: item_without_model
+  allowed_materials:
+    - DIAMOND_SWORD</code></pre>
+
+                <div class="alert alert-info">
+                    <div class="alert-title">&#128161; Key Points</div>
+                    <ul>
+                        <li><strong>skin_id</strong> (in skins.yml): <code>leaf_weapon</code> - used for commands,
+                            permissions, and identifying the skin</li>
+                        <li><strong>namespace</strong> (in items.yml): <code>leaf_weapon</code> - used for resource pack
+                            asset organization and texture references</li>
+                        <li><strong>item_id</strong>: <code>leaf_diamond_sword</code> - the key in items.yml, referenced
+                            by model_id in skins.yml</li>
+                        <li>Texture references in the model JSON use <code>leaf_weapon:item/diamond_sword</code> format
+                            (namespace:path)</li>
+                        <li>The model is a custom 3D model with multiple elements, not a simple parent-based model</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Best Practices -->
+            <section>
+                <h2>&#128077; Best Practices</h2>
+
+                <div class="card">
+                    <div class="card-header">&#127919; Use Unique Namespaces</div>
+                    <p>Each skin set should have a unique namespace to avoid conflicts with other skins or resource
+                        packs.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">&#128295; Optimize Textures</div>
+                    <p>Keep texture files small (16x16 or 32x32 for most items) to minimize resource pack size and
+                        download time.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">&#9989; Test Before Deploying</div>
+                    <p>Always test your skins on a development server before deploying to production. Check for:</p>
+                    <ul>
+                        <li>Correct texture display</li>
+                        <li>Proper model positioning in hand</li>
+                        <li>No console errors</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">&#128190; Backup Your Work</div>
+                    <p>Keep backups of your skin files outside the plugin directory to prevent loss during updates.</p>
+                </div>
+            </section>
+
+            <!-- Troubleshooting -->
+            <section>
+                <h2>&#128295; Troubleshooting</h2>
+
+                <div class="card">
+                    <div class="card-header">&#10060; Skin not appearing in-game</div>
+                    <ul>
+                        <li>Make sure you ran <code>/ws pack build</code> after adding the skin</li>
+                        <li>Check that players have accepted the resource pack</li>
+                        <li>Verify the <code>model_id</code> in skins.yml matches a key in items.yml</li>
+                        <li>Check server console for any error messages</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">&#10060; Texture shows as missing (purple/black checkerboard)</div>
+                    <ul>
+                        <li>Verify the texture path in items.yml matches the actual file location</li>
+                        <li>Check that the PNG file is valid and not corrupted</li>
+                        <li>Ensure the namespace in items.yml matches the folder structure</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">&#10060; Build fails with validation error</div>
+                    <ul>
+                        <li>Check that all model_ids in skins.yml exist in items.yml files</li>
+                        <li>Verify YAML syntax in items.yml and skins.yml</li>
+                        <li>Check for duplicate model IDs across different skin sets</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Tools & Resources -->
+            <section>
+                <h2>&#128736; Tools & Resources</h2>
+                <div class="feature-grid">
+                    <a href="https://www.blockbench.net/" class="feature-card"
+                        style="text-decoration: none; color: inherit;" target="_blank">
+                        <div class="feature-icon">&#128230;</div>
+                        <div class="feature-title">Blockbench</div>
+                        <div class="feature-description">Free 3D modeling tool for Minecraft. Create custom models and
+                            textures.</div>
+                    </a>
+                    <a href="https://minecraft.wiki/w/Model" class="feature-card"
+                        style="text-decoration: none; color: inherit;" target="_blank">
+                        <div class="feature-icon">&#128214;</div>
+                        <div class="feature-title">Minecraft Wiki</div>
+                        <div class="feature-description">Official documentation for Minecraft model JSON format.</div>
+                    </a>
+                    <a href="https://minecraft.wiki/w/Resource_pack" class="feature-card"
+                        style="text-decoration: none; color: inherit;" target="_blank">
+                        <div class="feature-icon">&#128230;</div>
+                        <div class="feature-title">Resource Pack Guide</div>
+                        <div class="feature-description">Learn about Minecraft resource pack structure and format.</div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="footer">
+                <p>
+                    WeaponSkin is licensed under the <a href="https://github.com/k4han/WeaponSkin/blob/main/LICENSE"
+                        target="_blank">MIT License</a>.
+                </p>
+                <p>
+                    <a href="https://github.com/k4han/WeaponSkin" target="_blank">GitHub</a> &#8226;
+                    <a href="https://github.com/k4han/WeaponSkin/issues" target="_blank">Report Issue</a>
+                </p>
+            </footer>
+        </main>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('open');
+        }
+    </script>
+</body>
+
+</html>

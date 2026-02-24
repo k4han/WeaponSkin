@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="WeaponSkin Installation Guide - Step by step instructions to install and set up the plugin">
+    <title>Installation - WeaponSkin Documentation</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <button class="menu-toggle" onclick="toggleSidebar()">&#9776;</button>
+
+    <div class="container">
+        <!-- Sidebar -->
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-logo">
+                    <span class="sidebar-logo-icon">&#9876;</span>
+                    <span class="sidebar-logo-text">WeaponSkin</span>
+                </a>
+            </div>
+            <div class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-section-title">Getting Started</div>
+                    <a href="index.html" class="nav-link">
+                        <span class="nav-link-icon">&#127968;</span>
+                        <span>Overview</span>
+                    </a>
+                    <a href="installation.html" class="nav-link active">
+                        <span class="nav-link-icon">&#128229;</span>
+                        <span>Installation</span>
+                    </a>
+                    <a href="configuration.html" class="nav-link">
+                        <span class="nav-link-icon">&#9881;</span>
+                        <span>Configuration</span>
+                    </a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-section-title">Documentation</div>
+                    <a href="commands.html" class="nav-link">
+                        <span class="nav-link-icon">&#128187;</span>
+                        <span>Commands</span>
+                    </a>
+                    <a href="permissions.html" class="nav-link">
+                        <span class="nav-link-icon">&#128274;</span>
+                        <span>Permissions</span>
+                    </a>
+                    <a href="skins.html" class="nav-link">
+                        <span class="nav-link-icon">&#127912;</span>
+                        <span>Custom Skins</span>
+                    </a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-section-title">Links</div>
+                    <a href="https://github.com/k4han/WeaponSkin" class="nav-link" target="_blank">
+                        <span class="nav-link-icon">&#128230;</span>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="https://github.com/k4han/WeaponSkin/issues" class="nav-link" target="_blank">
+                        <span class="nav-link-icon">&#128027;</span>
+                        <span>Report Issue</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="page-header">
+                <h1 class="page-title">
+                    <span>&#128229;</span>
+                    <span>Installation</span>
+                </h1>
+                <p class="page-description">Step-by-step guide to install and set up WeaponSkin on your Minecraft
+                    server.</p>
+            </header>
+
+            <!-- Requirements Section -->
+            <section>
+                <h2>&#128203; Requirements</h2>
+                <p>Before installing WeaponSkin, make sure your server meets the following requirements:</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Requirement</th>
+                            <th>Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Minecraft Server</strong></td>
+                            <td>1.21 or higher (API version <code>1.21</code>)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>PacketEvents</strong></td>
+                            <td>Required dependency for equipment packet handling</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Oraxen</strong> <span class="badge badge-optional">Optional</span></td>
+                            <td>Only needed if using <code>provider: oraxen</code></td>
+                        </tr>
+                        <tr>
+                            <td><strong>item_model Provider</strong></td>
+                            <td>Requires Minecraft 1.21.4+ for built-in resource pack system</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="alert alert-warning">
+                    <div class="alert-title">&#9888; Important</div>
+                    <p>The <code>item_model</code> provider (built-in resource pack system) requires Minecraft 1.21.4 or
+                        higher. If you're running an older version, you'll need to use Oraxen as the provider.</p>
+                </div>
+            </section>
+
+            <!-- Installation Steps -->
+            <section>
+                <h2>&#128640; Installation Steps</h2>
+
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-title">Download WeaponSkin</div>
+                        <div class="step-content">
+                            <p>Download the latest <code>WeaponSkin.jar</code> from the <a
+                                    href="https://github.com/k4han/WeaponSkin/releases" target="_blank">GitHub
+                                    Releases</a> page.</p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-title">Download PacketEvents</div>
+                        <div class="step-content">
+                            <p>Download PacketEvents from the <a
+                                    href="https://github.com/retrooper/packetevents/releases" target="_blank">official
+                                    releases page</a>. This is a required dependency.</p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-title">Place Files in plugins Folder</div>
+                        <div class="step-content">
+                            <p>Place both JAR files in your server's <code>plugins/</code> folder:</p>
+                            <div class="file-tree">
+                                <div class="file-tree-item"><span class="file-tree-folder">&#128193; plugins/</span>
+                                </div>
+                                <div class="file-tree-item" style="padding-left: 1.5rem;"><span
+                                        class="file-tree-file">&#128196; WeaponSkin.jar</span></div>
+                                <div class="file-tree-item" style="padding-left: 1.5rem;"><span
+                                        class="file-tree-file">&#128196; packetevents-x.x.x.jar</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-title">Start the Server</div>
+                        <div class="step-content">
+                            <p>Start your Minecraft server. The plugin will automatically generate configuration files
+                                in <code>plugins/WeaponSkin/</code>.</p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-title">Configure the Plugin</div>
+                        <div class="step-content">
+                            <p>Edit the configuration files to customize the plugin:</p>
+                            <ul>
+                                <li><code>config.yml</code> - Main configuration (provider, sounds, host settings)</li>
+                                <li><code>skins.yml</code> - Skin definitions</li>
+                                <li><code>langs/en.yml</code> - Language file (English)</li>
+                                <li><code>langs/vi.yml</code> - Language file (Vietnamese)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-title">Build the Resource Pack</div>
+                        <div class="step-content">
+                            <p>Run the following command to generate and host the resource pack:</p>
+                            <pre><code>/weaponskin pack build</code></pre>
+                            <p>Or use the alias:</p>
+                            <pre><code>/ws pack build</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Post-Installation -->
+            <section>
+                <h2>&#9989; Post-Installation</h2>
+                <p>After completing the installation:</p>
+                <ul>
+                    <li>Players will automatically receive the resource pack when joining (if
+                        <code>host.enabled: true</code>)</li>
+                    <li>Use <code>/ws give <player> <skinId></code> to give skin items to players</li>
+                    <li>Use <code>/ws remove <player></code> to give Skin Remover items</li>
+                    <li>Use <code>/ws list</code> to see all registered skins</li>
+                </ul>
+            </section>
+
+            <!-- Building from Source -->
+            <section>
+                <h2>&#128295; Building from Source</h2>
+                <p>If you want to build the plugin from source:</p>
+                <pre><code>git clone https://github.com/k4han/WeaponSkin.git
+cd WeaponSkin
+./gradlew build</code></pre>
+                <p>The compiled JAR will be available at <code>build/libs/WeaponSkin-*.jar</code>.</p>
+            </section>
+
+            <!-- Troubleshooting -->
+            <section>
+                <h2>&#128295; Troubleshooting</h2>
+
+                <div class="card">
+                    <div class="card-header">&#10060; Plugin doesn't load</div>
+                    <p>Make sure PacketEvents is installed. Check the server console for any error messages.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">&#10060; Resource pack not loading for players</div>
+                    <p>Check that <code>host.enabled: true</code> in config.yml and the port specified in
+                        <code>host.self-host.port</code> is open and accessible from the internet.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">&#10060; Skins not appearing</div>
+                    <p>Make sure you've run <code>/ws pack build</code> after adding skins. Check that model_id in
+                        skins.yml matches a key in items.yml.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">&#10060; Port already in use</div>
+                    <p>Change the port in <code>host.self-host.port</code> to an available port. Make sure to update
+                        your firewall rules accordingly.</p>
+                </div>
+            </section>
+
+            <!-- Next Steps -->
+            <section>
+                <h2>&#128214; Next Steps</h2>
+                <div class="feature-grid">
+                    <a href="configuration.html" class="feature-card" style="text-decoration: none; color: inherit;">
+                        <div class="feature-icon">&#9881;</div>
+                        <div class="feature-title">Configuration</div>
+                        <div class="feature-description">Learn how to configure the plugin for your server.</div>
+                    </a>
+                    <a href="skins.html" class="feature-card" style="text-decoration: none; color: inherit;">
+                        <div class="feature-icon">&#127912;</div>
+                        <div class="feature-title">Custom Skins</div>
+                        <div class="feature-description">Create and add your own custom weapon skins.</div>
+                    </a>
+                    <a href="commands.html" class="feature-card" style="text-decoration: none; color: inherit;">
+                        <div class="feature-icon">&#128187;</div>
+                        <div class="feature-title">Commands</div>
+                        <div class="feature-description">View all available commands and their usage.</div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="footer">
+                <p>
+                    WeaponSkin is licensed under the <a href="https://github.com/k4han/WeaponSkin/blob/main/LICENSE"
+                        target="_blank">MIT License</a>.
+                </p>
+                <p>
+                    <a href="https://github.com/k4han/WeaponSkin" target="_blank">GitHub</a> &#8226;
+                    <a href="https://github.com/k4han/WeaponSkin/issues" target="_blank">Report Issue</a>
+                </p>
+            </footer>
+        </main>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('open');
+        }
+    </script>
+</body>
+
+</html>

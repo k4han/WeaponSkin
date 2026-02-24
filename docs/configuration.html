@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="WeaponSkin Configuration Guide - Detailed configuration options for config.yml and skins.yml">
+    <title>Configuration - WeaponSkin Documentation</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <button class="menu-toggle" onclick="toggleSidebar()">&#9776;</button>
+
+    <div class="container">
+        <!-- Sidebar -->
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-logo">
+                    <span class="sidebar-logo-icon">&#9876;</span>
+                    <span class="sidebar-logo-text">WeaponSkin</span>
+                </a>
+            </div>
+            <div class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-section-title">Getting Started</div>
+                    <a href="index.html" class="nav-link">
+                        <span class="nav-link-icon">&#127968;</span>
+                        <span>Overview</span>
+                    </a>
+                    <a href="installation.html" class="nav-link">
+                        <span class="nav-link-icon">&#128229;</span>
+                        <span>Installation</span>
+                    </a>
+                    <a href="configuration.html" class="nav-link active">
+                        <span class="nav-link-icon">&#9881;</span>
+                        <span>Configuration</span>
+                    </a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-section-title">Documentation</div>
+                    <a href="commands.html" class="nav-link">
+                        <span class="nav-link-icon">&#128187;</span>
+                        <span>Commands</span>
+                    </a>
+                    <a href="permissions.html" class="nav-link">
+                        <span class="nav-link-icon">&#128274;</span>
+                        <span>Permissions</span>
+                    </a>
+                    <a href="skins.html" class="nav-link">
+                        <span class="nav-link-icon">&#127912;</span>
+                        <span>Custom Skins</span>
+                    </a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-section-title">Links</div>
+                    <a href="https://github.com/k4han/WeaponSkin" class="nav-link" target="_blank">
+                        <span class="nav-link-icon">&#128230;</span>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="https://github.com/k4han/WeaponSkin/issues" class="nav-link" target="_blank">
+                        <span class="nav-link-icon">&#128027;</span>
+                        <span>Report Issue</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="page-header">
+                <h1 class="page-title">
+                    <span>&#9881;</span>
+                    <span>Configuration</span>
+                </h1>
+                <p class="page-description">Detailed configuration options for customizing WeaponSkin to fit your
+                    server's needs.</p>
+            </header>
+
+            <!-- config.yml Section -->
+            <section>
+                <h2>&#128450; config.yml</h2>
+                <p>The main configuration file controls global plugin settings.</p>
+
+                <h3>Full Configuration Example</h3>
+                <pre><code># ============================================
+# WeaponSkin Configuration
+# ============================================
+
+# Prefix for all plugin messages
+# Use Minecraft color codes (&a, &c, &e, ...)
+prefix: "&7[&eWeaponSkin&7] "
+
+# Language file to use (without .yml extension)
+# Available options: en, vi
+language: en
+
+# Global Sounds - Applied to ALL skins. No per-skin override.
+apply-sound: ENTITY_PLAYER_LEVELUP
+remove-sound: ENTITY_ITEM_BREAK
+
+# Provider Configuration
+# Global provider applied to ALL skins.
+#
+# Options:
+#   - auto: Prefer Oraxen if available, fallback item_model (default)
+#   - oraxen: Use Oraxen provider (requires Oraxen plugin)
+#   - item_model: Use item_model component (1.21.4+) - recommended
+provider: auto
+
+# Resource Pack Metadata
+# Description shown in pack.mcmeta.
+pack:
+  description: "WeaponSkin resource pack"
+  namespace: "weaponskin"
+
+# Auto-Host Configuration
+# Settings for automatic HTTP hosting and push to players
+# Only used when provider = item_model
+host:
+  # Enable/disable auto-host feature
+  enabled: true
+
+  # Whether accepting this resource pack is required.
+  required: true
+
+  # Host type: "self-host" or "external-host"
+  type: "self-host"
+
+  # External host configuration
+  external-host:
+    url: "https://example.com/packs"
+
+  # Self-host configuration
+  self-host:
+    ip: "localhost"
+    port: 8765</code></pre>
+            </section>
+
+            <!-- Configuration Options -->
+            <section>
+                <h3>&#128450; Configuration Options</h3>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Option</th>
+                            <th>Type</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>prefix</code></td>
+                            <td>String</td>
+                            <td><code>&7[&eWeaponSkin&7] </code></td>
+                            <td>Prefix for all chat messages. Supports color codes.</td>
+                        </tr>
+                        <tr>
+                            <td><code>language</code></td>
+                            <td>String</td>
+                            <td><code>en</code></td>
+                            <td>Language file to use. Options: <code>en</code>, <code>vi</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>apply-sound</code></td>
+                            <td>String</td>
+                            <td><code>ENTITY_PLAYER_LEVELUP</code></td>
+                            <td>Sound played when a skin is applied.</td>
+                        </tr>
+                        <tr>
+                            <td><code>remove-sound</code></td>
+                            <td>String</td>
+                            <td><code>ENTITY_ITEM_BREAK</code></td>
+                            <td>Sound played when a skin is removed.</td>
+                        </tr>
+                        <tr>
+                            <td><code>provider</code></td>
+                            <td>String</td>
+                            <td><code>auto</code></td>
+                            <td>Skin provider mode. See Provider Modes section.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Provider Modes -->
+            <section>
+                <h2>&#128230; Provider Modes</h2>
+                <p>The <code>provider</code> setting determines how skins are handled:</p>
+
+                <div class="card">
+                    <div class="card-header">&#9989; auto (Recommended)</div>
+                    <p>Automatically detects and uses Oraxen if installed, otherwise falls back to the built-in
+                        <code>item_model</code> system. This is the most flexible option.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">&#128295; item_model</div>
+                    <p>Uses the built-in resource pack system. Requires Minecraft 1.21.4+. The plugin handles resource
+                        pack generation, hosting, and distribution automatically.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">&#128293; oraxen</div>
+                    <p>Delegates all skin handling to the Oraxen plugin. Requires Oraxen to be installed. Use this if
+                        you already use Oraxen for custom items.</p>
+                </div>
+            </section>
+
+            <!-- Host Configuration -->
+            <section>
+                <h2>&#127760; Resource Pack Hosting</h2>
+                <p>When using <code>provider: item_model</code>, you can configure how the resource pack is distributed
+                    to players.</p>
+
+                <h3>Self-Host (Default)</h3>
+                <p>The plugin runs an internal HTTP server to host the resource pack:</p>
+                <pre><code>host:
+  enabled: true
+  required: true
+  type: "self-host"
+  self-host:
+    ip: "localhost"    # Your server's public IP or domain
+    port: 8765         # Port for HTTP server</code></pre>
+
+                <div class="alert alert-warning">
+                    <div class="alert-title">&#9888; Warning</div>
+                    <p>Make sure the specified port is open in your firewall and accessible from the internet. Players
+                        won't be able to download the resource pack if the port is blocked.</p>
+                </div>
+
+                <h3>External Host</h3>
+                <p>Upload the resource pack to a CDN or file hosting service:</p>
+                <pre><code>host:
+  enabled: true
+  required: true
+  type: "external-host"
+  external-host:
+    url: "https://your-cdn.com/packs"</code></pre>
+
+                <p>After building the pack with <code>/ws pack build</code>, upload the generated ZIP file to your host,
+                    then run:</p>
+                <pre><code>/weaponskin pack apply https://your-cdn.com/WeaponSkin-pack.zip</code></pre>
+            </section>
+
+            <!-- skins.yml Section -->
+            <section>
+                <h2>&#128450; skins.yml</h2>
+                <p>This file defines which skins are available and what weapons they can be applied to.</p>
+
+                <h3>Example Configuration</h3>
+                <pre><code># Each skin requires:
+#   - model_id: must match a key in skins/*/items.yml
+#   - allowed_materials: list of materials this skin can be applied to
+
+leaf_weapon:
+  model_id: leaf_diamond_sword
+  allowed_materials:
+    - DIAMOND_SWORD
+    - NETHERITE_SWORD
+
+rivers_of_blood:
+  model_id: riversofblood_sword
+  allowed_materials:
+    - DIAMOND_SWORD
+    - NETHERITE_SWORD</code></pre>
+
+                <h3>Skin Definition Fields</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Field</th>
+                            <th>Required</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>model_id</code></td>
+                            <td><span class="badge badge-required">Required</span></td>
+                            <td>The model identifier that matches a key in <code>skins/*/items.yml</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>allowed_materials</code></td>
+                            <td><span class="badge badge-required">Required</span></td>
+                            <td>List of Minecraft material types this skin can be applied to</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="alert alert-info">
+                    <div class="alert-title">&#128161; Tip</div>
+                    <p>Use uppercase material names as defined in the Bukkit API (e.g., <code>DIAMOND_SWORD</code>,
+                        <code>NETHERITE_SWORD</code>).</p>
+                </div>
+            </section>
+
+            <!-- Language Configuration -->
+            <section>
+                <h2>&#127760; Language Configuration</h2>
+                <p>WeaponSkin supports multiple languages for all user-facing messages.</p>
+
+                <h3>Available Languages</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Language</th>
+                            <th>Code</th>
+                            <th>File</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>English</td>
+                            <td><code>en</code></td>
+                            <td><code>langs/en.yml</code></td>
+                        </tr>
+                        <tr>
+                            <td>Vietnamese</td>
+                            <td><code>vi</code></td>
+                            <td><code>langs/vi.yml</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Changing Language</h3>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-title">Edit config.yml</div>
+                        <div class="step-content">Set <code>language: vi</code> (or your preferred language code)</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-title">Reload Configuration</div>
+                        <div class="step-content">Run <code>/ws reload</code> to apply changes</div>
+                    </div>
+                </div>
+
+                <h3>Adding Custom Languages</h3>
+                <ol>
+                    <li>Create a new file in <code>plugins/WeaponSkin/langs/</code> (e.g., <code>fr.yml</code> for
+                        French)</li>
+                    <li>Copy the structure from an existing language file</li>
+                    <li>Translate all messages to your language</li>
+                    <li>Set <code>language: fr</code> in <code>config.yml</code></li>
+                    <li>Run <code>/ws reload</code></li>
+                </ol>
+            </section>
+
+            <!-- Next Steps -->
+            <section>
+                <h2>&#128214; Next Steps</h2>
+                <div class="feature-grid">
+                    <a href="skins.html" class="feature-card" style="text-decoration: none; color: inherit;">
+                        <div class="feature-icon">&#127912;</div>
+                        <div class="feature-title">Custom Skins</div>
+                        <div class="feature-description">Learn how to create and add custom weapon skins.</div>
+                    </a>
+                    <a href="commands.html" class="feature-card" style="text-decoration: none; color: inherit;">
+                        <div class="feature-icon">&#128187;</div>
+                        <div class="feature-title">Commands</div>
+                        <div class="feature-description">View all available commands and their usage.</div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="footer">
+                <p>
+                    WeaponSkin is licensed under the <a href="https://github.com/k4han/WeaponSkin/blob/main/LICENSE"
+                        target="_blank">MIT License</a>.
+                </p>
+                <p>
+                    <a href="https://github.com/k4han/WeaponSkin" target="_blank">GitHub</a> &#8226;
+                    <a href="https://github.com/k4han/WeaponSkin/issues" target="_blank">Report Issue</a>
+                </p>
+            </footer>
+        </main>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('open');
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,126 @@
+# WeaponSkin Language File - Vietnamese
+# Placeholders: {player}, {skinId}, {amount}, {url}, {count}, {usage}
+
+commands:
+  no-permission: "&cBạn không có quyền dùng lệnh này!"
+  usage: "&cCú pháp: {usage}"
+  player-not-online: "&cPlayer &e{player} &ckhông online!"
+  skin-not-found: "&cSkin &e{skinId} &ckhông tồn tại trong config!"
+  invalid-amount: "&cAmount không hợp lệ: &e{amount}"
+  
+  give:
+    success: "&aĐã give &e{amount} &askin item &e{skinId} &acho &e{player}"
+    receive: "&aBạn nhận được &e{amount} &askin item: &e{skinId}"
+  
+  remove:
+    success: "&aĐã give &e{amount} &aremover cho &e{player}"
+    receive: "&aBạn nhận được &e{amount} &aSkin Remover!"
+  
+  list:
+    header: "&6=== Danh sách skin ==="
+    entry: "&e{skinId} &7| Materials: {materials}"
+  
+  reload:
+    success: "&aĐã reload config, skins, language, và host settings!"
+  
+  pack:
+    building: "&7Đang build resource pack..."
+    syntax: "&cCú pháp: /weaponskin pack <build|apply>"
+    host-unavailable: "&cAuto-host không khả dụng (provider không phải item_model hoặc host.enabled = false)."
+    
+    build:
+      success-self-host: "&aBuild thành công! Pack đang serve tại: &f{url}"
+      success-external: "&aBuild thành công!"
+      file-info: "&ePack file: &f{file}"
+      sha1-info: "&eSHA1: &f{sha1}"
+      players-info: "&aĐã push tới &e{count} &aplayer online"
+      auto-allocated: "&eĐã auto-allocate custom_model_data và ghi lại vào pack/items.yml"
+      warning: "&eWARNING: &7{message}"
+      external-info: "&6Vui lòng upload file này lên external host của bạn."
+      external-apply: "&6Sau đó chạy: &e/skin pack apply <url>"
+    
+    apply:
+      syntax: "&cCú pháp: /weaponskin pack apply <url>"
+      info: "&7Áp dụng pack sau khi đã upload lên external host."
+      no-pending: "&cKhông có pack nào đang chờ. Chạy /skin pack build trước."
+      pack-file-missing: "&cPack file không còn tồn tại. Vui lòng build lại."
+      success: "&aĐã áp dụng pack cho &e{count} &aplayer online"
+      url-info: "&eURL: &f{url}"
+      sha1-info: "&eSHA1: &f{sha1}"
+      error: "&cKhông thể áp dụng pack. Đã xảy ra lỗi."
+
+  help:
+    header: "&6=== WeaponSkin Commands ==="
+    give: "&e/weaponskin give <player> <skinId> [amount] &7- Give skin item"
+    remove: "&e/weaponskin remove <player> [amount] &7- Give remove-skin item"
+    remover: "&e/weaponskin remover <player> [amount] &7- Alias của /weaponskin remove"
+    list: "&e/weaponskin list &7- Xem danh sách skin"
+    reload: "&e/weaponskin reload &7- Reload config"
+    pack-build: "&e/weaponskin pack build &7- Build resource pack"
+    pack-apply: "&e/weaponskin pack apply <url> &7- Áp dụng pack (external-host)"
+    alias: "&7Alias: &e/ws &7có thể thay cho &e/weaponskin"
+
+errors:
+  build-failed: "&cBuild pack thất bại: &f{message}"
+  build-io-error: "&cBuild pack IO error: &f{message}"
+  build-error: "&cBuild pack error: &f{message}"
+  command-missing: "&cCommand 'weaponskin' bị thiếu trong plugin.yml. Plugin sẽ chạy mà không có lệnh."
+  server-start-failed: "&cKhông thể khởi động Pack HTTP server trên port {port}: {message}"
+  server-start-severe: "&cResource pack auto-host sẽ không hoạt động. Vui lòng kiểm tra port có đang được sử dụng không."
+  sha1-failed: "&cKhông thể tính SHA1 cho pack cũ: {message}"
+  validation-missing-model: "&cValidation: Skin '{skinId}' yêu cầu model_id '{modelId}' nhưng không tìm thấy trong items.yml!"
+  validation-missing-count: "&cValidation: {count} skin(s) có model_id không hợp lệ. Chạy '/skin pack build' sẽ thất bại hoặc skins sẽ không hoạt động."
+  unknown-sound: "&cUnknown sound '{sound}', using fallback."
+  unknown-material: "&cUnknown material '{material}' trong skin: {skinId}"
+  language-not-found: "&cLanguage file '{lang}.yml' không tìm thấy. Sử dụng English làm fallback."
+
+info:
+  plugin-enabled: "&aWeaponSkinPlugin enabled successfully!"
+  plugin-disabled: "&cWeaponSkinPlugin disabled."
+  skins-loaded: "&aLoaded {count} skin(s)."
+  pack-format: "&ePack format: {format} (auto-detected from server version)"
+  validation-ok: "&aValidation: all model_ids are valid."
+  existing-pack-found: "&aFound existing pack: {path}"
+  existing-pack-loaded: "&aLoaded existing pack. SHA1: {sha1}"
+  external-host-mode: "&eExternal-host mode: Skipping auto-build."
+  external-host-info: "&ePlease run /skin pack build, then upload the pack to your external host."
+  no-skins: "&eNo skins defined in config. Skipping auto-build."
+  auto-build-start: "&aNo existing pack found. Auto-building resource pack..."
+  auto-build-skins: "&eFound {count} skin(s) in config."
+  auto-build-done: "&aAuto-build completed successfully!"
+  auto-build-file: "&ePack file: {file}"
+  auto-build-sha1: "&eSHA1: {sha1}"
+  auto-build-pushed: "&aPushed to &e{count} &aplayer(s) online"
+  auto-host-external: "&eAuto-host using external-host mode"
+  auto-host-disabled: "&eAuto-host is disabled (host.enabled = false)"
+  auto-host-wrong-provider: "&eAuto-host only available with effective provider = item_model (current: {provider})"
+  pack-build-start: "&aBuild completed successfully!"
+  pack-no-existing: "&eNo existing pack. Build with /skin pack build and upload to your external host."
+  update-available: "&a[Update] &eĐã có phiên bản mới của WeaponSkin ({version})! Vui lòng cập nhật."
+  update-latest: "&a[Update] &aBạn đang sử dụng phiên bản mới nhất của WeaponSkin."
+  update-check-failed: "&c[Update] &cKhông thể kiểm tra cập nhật: {message}"
+
+items:
+  skin:
+    display-name: "&6Skin: &e{skinId}"
+    lore-materials: "&7Dùng cho: &f{materials}"
+    lore-apply: "&7Kéo vào vũ khí để áp dụng"
+    lore-preview: "&eShift + Chuột phải để xem trước"
+  remover:
+    display-name: "&cSkin Remover"
+    lore-remove: "&7Kéo vào vũ khí để gỡ skin"
+    lore-single-use: "&cDùng một lần"
+
+preview:
+  invalid-item: "&cSkin item không hợp lệ."
+  skin-not-found: "&cSkin không tồn tại trong config."
+  cannot-preview: "&cKhông thể tạo preview cho skin này."
+  start: "&7[Preview] &eSkin &6{skinId} &e— hiển thị trong 5 giây."
+  cooldown: "&cVui lòng chờ {seconds}s trước khi preview lại."
+
+apply:
+  skin-not-found: "&cSkin không tồn tại trong config!"
+  cannot-apply: "&cKhông thể apply skin! Weapon có thể đã có skin hoặc không hợp lệ."
+  success: "&aSkin &e{skinId} &ađã được apply!"
+  remove-no-skin: "&cWeapon này không có skin!"
+  remove-success: "&aSkin đã được gỡ bỏ!"

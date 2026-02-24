@@ -1,0 +1,20 @@
+# ============================================
+# WeaponSkin - Skin Definitions
+# ============================================
+# Each skin requires:
+#   - model_id: must match a key in skins/*/items.yml
+#   - allowed_materials: list of materials this skin can be applied to
+#
+# Global sounds and provider are configured in config.yml
+# ============================================
+
+leaf_weapon:
+  model_id: leaf_diamond_sword
+  allowed_materials:
+    - DIAMOND_SWORD
+    - NETHERITE_SWORD
+
+short_diamond_sword:
+  model_id: item_without_model
+  allowed_materials:
+    - DIAMOND_SWORD

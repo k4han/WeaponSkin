@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="WeaponSkin - A Minecraft plugin that lets players apply and remove cosmetic skins on weapons">
+    <title>WeaponSkin - Minecraft Weapon Skin Plugin</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <button class="menu-toggle" onclick="toggleSidebar()">&#9776;</button>
+
+    <div class="container">
+        <!-- Sidebar -->
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-logo">
+                    <span class="sidebar-logo-icon">&#9876;</span>
+                    <span class="sidebar-logo-text">WeaponSkin</span>
+                </a>
+            </div>
+            <div class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-section-title">Getting Started</div>
+                    <a href="index.html" class="nav-link active">
+                        <span class="nav-link-icon">&#127968;</span>
+                        <span>Overview</span>
+                    </a>
+                    <a href="installation.html" class="nav-link">
+                        <span class="nav-link-icon">&#128229;</span>
+                        <span>Installation</span>
+                    </a>
+                    <a href="configuration.html" class="nav-link">
+                        <span class="nav-link-icon">&#9881;</span>
+                        <span>Configuration</span>
+                    </a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-section-title">Documentation</div>
+                    <a href="commands.html" class="nav-link">
+                        <span class="nav-link-icon">&#128187;</span>
+                        <span>Commands</span>
+                    </a>
+                    <a href="permissions.html" class="nav-link">
+                        <span class="nav-link-icon">&#128274;</span>
+                        <span>Permissions</span>
+                    </a>
+                    <a href="skins.html" class="nav-link">
+                        <span class="nav-link-icon">&#127912;</span>
+                        <span>Custom Skins</span>
+                    </a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-section-title">Links</div>
+                    <a href="https://github.com/k4han/WeaponSkin" class="nav-link" target="_blank">
+                        <span class="nav-link-icon">&#128230;</span>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="https://github.com/k4han/WeaponSkin/issues" class="nav-link" target="_blank">
+                        <span class="nav-link-icon">&#128027;</span>
+                        <span>Report Issue</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Hero Section -->
+            <section class="hero">
+                <h1 class="hero-title">
+                    <span>&#9876;</span>
+                    <span>WeaponSkin</span>
+                </h1>
+                <p class="hero-subtitle">
+                    A Minecraft plugin that lets players apply and remove cosmetic skins on weapons — without replacing
+                    the item itself.
+                </p>
+                <div class="hero-buttons">
+                    <a href="installation.html" class="btn btn-primary">
+                        <span>&#128640;</span>
+                        <span>Get Started</span>
+                    </a>
+                    <a href="https://github.com/k4han/WeaponSkin" class="btn btn-secondary" target="_blank">
+                        <span>&#128230;</span>
+                        <span>View on GitHub</span>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Features Section -->
+            <section>
+                <h2>&#10024; Features</h2>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">&#127912;</div>
+                        <div class="feature-title">Custom Weapon Skins</div>
+                        <div class="feature-description">Apply custom cosmetic skins to weapons via simple drag-and-drop
+                            inventory interaction.</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">&#128295;</div>
+                        <div class="feature-title">Built-in Resource Pack</div>
+                        <div class="feature-description">No dependencies required! Built-in resource pack builder, HTTP
+                            host server, and auto-push to players.</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">&#128268;</div>
+                        <div class="feature-title">Oraxen Support</div>
+                        <div class="feature-description">Supports Oraxen as an alternative provider with automatic
+                            detection and fallback.</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">&#128065;</div>
+                        <div class="feature-title">Skin Preview</div>
+                        <div class="feature-description">Preview skins before applying with Shift + Right Click. See how
+                            it looks before committing!</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">&#127760;</div>
+                        <div class="feature-title">Multi-Language</div>
+                        <div class="feature-description">Configurable language files with English and Vietnamese
+                            included out of the box.</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">&#128274;</div>
+                        <div class="feature-title">Granular Permissions</div>
+                        <div class="feature-description">Individual permission nodes for each sub-command for
+                            fine-grained access control.</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Requirements Section -->
+            <section>
+                <h2>&#128203; Requirements</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Dependency</th>
+                            <th>Type</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <a href="https://github.com/retrooper/packetevents" target="_blank">PacketEvents</a>
+                            </td>
+                            <td><span class="badge badge-required">Required</span></td>
+                            <td>For equipment packet handling</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="https://oraxen.com/" target="_blank">Oraxen</a>
+                            </td>
+                            <td><span class="badge badge-optional">Optional</span></td>
+                            <td>Only needed if <code>provider: oraxen</code></td>
+                        </tr>
+                        <tr>
+                            <td>Minecraft</td>
+                            <td><span class="badge badge-required">Required</span></td>
+                            <td>1.21+ (API version <code>1.21</code>, <code>item_model</code> requires 1.21.4+)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Quick Start Section -->
+            <section>
+                <h2>&#128640; Quick Start</h2>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-title">Download & Install</div>
+                        <div class="step-content">
+                            Download <code>WeaponSkin.jar</code> and <a
+                                href="https://github.com/retrooper/packetevents/releases"
+                                target="_blank">PacketEvents</a>, then place both in your <code>plugins/</code> folder.
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-title">Start Server</div>
+                        <div class="step-content">
+                            Start the server — config files will be generated automatically in
+                            <code>plugins/WeaponSkin/</code>.
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-title">Configure</div>
+                        <div class="step-content">
+                            Edit <code>config.yml</code> and <code>skins.yml</code> to customize the plugin for your
+                            server.
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-title">Build Resource Pack</div>
+                        <div class="step-content">
+                            Run <code>/weaponskin pack build</code> (or <code>/ws pack build</code>) to generate and
+                            host the resource pack.
+                        </div>
+                    </div>
+                </div>
+                <div class="alert alert-info">
+                    <div class="alert-title">&#128161; Tip</div>
+                    <p>For detailed installation instructions, see the <a href="installation.html">Installation
+                            Guide</a>.</p>
+                </div>
+            </section>
+
+            <!-- How It Works Section -->
+            <section>
+                <h2>&#127918; How It Works (Player Side)</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Action</th>
+                            <th>Result</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Drag skin item onto a weapon in inventory</td>
+                            <td>Applies the skin to the weapon</td>
+                        </tr>
+                        <tr>
+                            <td>Drag Skin Remover onto a skinned weapon</td>
+                            <td>Removes the skin from the weapon</td>
+                        </tr>
+                        <tr>
+                            <td>Shift + Right Click a skin item</td>
+                            <td>Preview the skin on your equipped weapon</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Provider Modes Section -->
+            <section>
+                <h2>&#128230; Provider Modes</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Provider</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>auto</code></td>
+                            <td>Uses Oraxen if installed, otherwise falls back to <code>item_model</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>item_model</code></td>
+                            <td>Built-in system — manages resource pack generation and hosting</td>
+                        </tr>
+                        <tr>
+                            <td><code>oraxen</code></td>
+                            <td>Delegates skin model lookup entirely to Oraxen</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Footer -->
+            <footer class="footer">
+                <p>
+                    WeaponSkin is licensed under the <a href="https://github.com/k4han/WeaponSkin/blob/main/LICENSE"
+                        target="_blank">MIT License</a>.
+                </p>
+                <p>
+                    <a href="https://github.com/k4han/WeaponSkin" target="_blank">GitHub</a> &#8226;
+                    <a href="https://github.com/k4han/WeaponSkin/issues" target="_blank">Report Issue</a>
+                </p>
+            </footer>
+        </main>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('open');
+        }
+    </script>
+</body>
+
+</html>

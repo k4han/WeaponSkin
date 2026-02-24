@@ -1,0 +1,20 @@
+# IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+
+# Gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# Compiled files
+*.class
+*.jar
+*.log
+
+# Project specific
+plans
+WeaponSkin.zip

@@ -1,0 +1,43 @@
+
+name: WeaponSkin
+version: '1.0.0'
+main: me.k4han.weaponSkin.WeaponSkin
+api-version: '1.21'
+authors: [ k4han ]
+depend:
+  - packetevents
+softdepend:
+  - Oraxen
+
+commands:
+  weaponskin:
+    description: WeaponSkin main command
+    usage: /weaponskin <give|remove|remover|list|reload|pack> ...
+    aliases: [ws]
+    permission: weaponskin.admin
+
+permissions:
+  weaponskin.admin:
+    description: Full access to WeaponSkin commands
+    default: op
+    children:
+      weaponskin.give: true
+      weaponskin.remove: true
+      weaponskin.list: true
+      weaponskin.reload: true
+      weaponskin.pack: true
+  weaponskin.give:
+    description: Give skin items
+    default: op
+  weaponskin.remove:
+    description: Give remover items
+    default: op
+  weaponskin.list:
+    description: List all skins
+    default: op
+  weaponskin.reload:
+    description: Reload configuration
+    default: op
+  weaponskin.pack:
+    description: Build and apply resource packs
+    default: op

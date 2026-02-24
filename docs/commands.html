@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="WeaponSkin Commands - Complete list of all available commands and their usage">
+    <title>Commands - WeaponSkin Documentation</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <button class="menu-toggle" onclick="toggleSidebar()">&#9776;</button>
+
+    <div class="container">
+        <!-- Sidebar -->
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-logo">
+                    <span class="sidebar-logo-icon">&#9876;</span>
+                    <span class="sidebar-logo-text">WeaponSkin</span>
+                </a>
+            </div>
+            <div class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-section-title">Getting Started</div>
+                    <a href="index.html" class="nav-link">
+                        <span class="nav-link-icon">&#127968;</span>
+                        <span>Overview</span>
+                    </a>
+                    <a href="installation.html" class="nav-link">
+                        <span class="nav-link-icon">&#128229;</span>
+                        <span>Installation</span>
+                    </a>
+                    <a href="configuration.html" class="nav-link">
+                        <span class="nav-link-icon">&#9881;</span>
+                        <span>Configuration</span>
+                    </a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-section-title">Documentation</div>
+                    <a href="commands.html" class="nav-link active">
+                        <span class="nav-link-icon">&#128187;</span>
+                        <span>Commands</span>
+                    </a>
+                    <a href="permissions.html" class="nav-link">
+                        <span class="nav-link-icon">&#128274;</span>
+                        <span>Permissions</span>
+                    </a>
+                    <a href="skins.html" class="nav-link">
+                        <span class="nav-link-icon">&#127912;</span>
+                        <span>Custom Skins</span>
+                    </a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-section-title">Links</div>
+                    <a href="https://github.com/k4han/WeaponSkin" class="nav-link" target="_blank">
+                        <span class="nav-link-icon">&#128230;</span>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="https://github.com/k4han/WeaponSkin/issues" class="nav-link" target="_blank">
+                        <span class="nav-link-icon">&#128027;</span>
+                        <span>Report Issue</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="page-header">
+                <h1 class="page-title">
+                    <span>&#128187;</span>
+                    <span>Commands</span>
+                </h1>
+                <p class="page-description">Complete list of all available commands and their usage.</p>
+            </header>
+
+            <!-- Command Overview -->
+            <section>
+                <h2>&#128450; Overview</h2>
+                <p>The main command is <code>/weaponskin</code> with the alias <code>/ws</code>. All sub-commands
+                    require appropriate permissions.</p>
+
+                <div class="alert alert-info">
+                    <div class="alert-title">&#128161; Tip</div>
+                    <p>You can use <code>/ws</code> as a shortcut for <code>/weaponskin</code> in all commands.</p>
+                </div>
+            </section>
+
+            <!-- Commands Table -->
+            <section>
+                <h2>&#128203; Command Reference</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Command</th>
+                            <th>Description</th>
+                            <th>Permission</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>/weaponskin give <player> <skinId> [amount]</code></td>
+                            <td>Give a skin item to a player</td>
+                            <td><code>weaponskin.give</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>/weaponskin remove <player> [amount]</code></td>
+                            <td>Give a Skin Remover item to a player</td>
+                            <td><code>weaponskin.remove</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>/weaponskin remover <player> [amount]</code></td>
+                            <td>Alias for <code>/weaponskin remove</code></td>
+                            <td><code>weaponskin.remove</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>/weaponskin list</code></td>
+                            <td>List all registered skins</td>
+                            <td><code>weaponskin.list</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>/weaponskin reload</code></td>
+                            <td>Reload config, skins, language, and host settings</td>
+                            <td><code>weaponskin.reload</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>/weaponskin pack build</code></td>
+                            <td>Build the resource pack from skin assets</td>
+                            <td><code>weaponskin.pack</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>/weaponskin pack apply <url></code></td>
+                            <td>Apply a built pack hosted on an external URL</td>
+                            <td><code>weaponskin.pack</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Detailed Command Usage -->
+            <section>
+                <h2>&#128209; Detailed Usage</h2>
+
+                <!-- Give Command -->
+                <div class="card">
+                    <div class="card-header">&#127873; Give Command</div>
+                    <pre><code>/weaponskin give <player> <skinId> [amount]
+/ws give <player> <skinId> [amount]</code></pre>
+                    <p>Gives a skin item to the specified player.</p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Argument</th>
+                                <th>Required</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>player</code></td>
+                                <td><span class="badge badge-required">Yes</span></td>
+                                <td>The name of the player to give the skin to</td>
+                            </tr>
+                            <tr>
+                                <td><code>skinId</code></td>
+                                <td><span class="badge badge-required">Yes</span></td>
+                                <td>The ID of the skin (as defined in skins.yml)</td>
+                            </tr>
+                            <tr>
+                                <td><code>amount</code></td>
+                                <td><span class="badge badge-optional">No</span></td>
+                                <td>Number of skin items to give (default: 1)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p><strong>Examples:</strong></p>
+                    <pre><code>/ws give Steve leaf_weapon
+/ws give Steve leaf_weapon 5
+/weaponskin give Alex rivers_of_blood 3</code></pre>
+                </div>
+
+                <!-- Remove Command -->
+                <div class="card">
+                    <div class="card-header">&#128465; Remove Command</div>
+                    <pre><code>/weaponskin remove <player> [amount]
+/weaponskin remover <player> [amount]
+/ws remove <player> [amount]</code></pre>
+                    <p>Gives a Skin Remover item to the specified player. The Skin Remover is used to remove skins from
+                        weapons.</p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Argument</th>
+                                <th>Required</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>player</code></td>
+                                <td><span class="badge badge-required">Yes</span></td>
+                                <td>The name of the player to give the remover to</td>
+                            </tr>
+                            <tr>
+                                <td><code>amount</code></td>
+                                <td><span class="badge badge-optional">No</span></td>
+                                <td>Number of remover items to give (default: 1)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p><strong>Examples:</strong></p>
+                    <pre><code>/ws remove Steve
+/ws remove Steve 3
+/weaponskin remover Alex 2</code></pre>
+                </div>
+
+                <!-- List Command -->
+                <div class="card">
+                    <div class="card-header">&#128196; List Command</div>
+                    <pre><code>/weaponskin list
+/ws list</code></pre>
+                    <p>Displays all registered skins with their allowed materials.</p>
+                    <p><strong>Example Output:</strong></p>
+                    <pre><code>=== Skin List ===
+leaf_weapon | Materials: DIAMOND_SWORD, NETHERITE_SWORD
+rivers_of_blood | Materials: DIAMOND_SWORD, NETHERITE_SWORD</code></pre>
+                </div>
+
+                <!-- Reload Command -->
+                <div class="card">
+                    <div class="card-header">&#128260; Reload Command</div>
+                    <pre><code>/weaponskin reload
+/ws reload</code></pre>
+                    <p>Reloads all configuration files:</p>
+                    <ul>
+                        <li><code>config.yml</code> - Main configuration</li>
+                        <li><code>skins.yml</code> - Skin definitions</li>
+                        <li>Language files</li>
+                        <li>Host settings</li>
+                    </ul>
+                    <div class="alert alert-warning">
+                        <div class="alert-title">&#9888; Note</div>
+                        <p>If you've changed host settings (IP, port), you may need to restart the server for changes to
+                            take full effect.</p>
+                    </div>
+                </div>
+
+                <!-- Pack Build Command -->
+                <div class="card">
+                    <div class="card-header">&#128230; Pack Build Command</div>
+                    <pre><code>/weaponskin pack build
+/ws pack build</code></pre>
+                    <p>Builds the resource pack from all skin assets in <code>pack/skins/</code>. The generated pack is
+                        saved to <code>pack/WeaponSkin-pack.zip</code>.</p>
+                    <p><strong>What it does:</strong></p>
+                    <ul>
+                        <li>Reads all <code>items.yml</code> files from <code>pack/skins/*/</code></li>
+                        <li>Copies models and textures to the pack</li>
+                        <li>Generates <code>pack.mcmeta</code> and content files</li>
+                        <li>If self-host is enabled, starts/restarts the HTTP server</li>
+                        <li>Pushes the pack to all online players</li>
+                    </ul>
+                    <p><strong>Example Output:</strong></p>
+                    <pre><code>Building resource pack...
+Build successful! Pack served at: http://your-server:8765/WeaponSkin-pack.zip
+Pack file: plugins/WeaponSkin/pack/WeaponSkin-pack.zip
+SHA1: abc123def456...
+Pushed to 5 player(s) online</code></pre>
+                </div>
+
+                <!-- Pack Apply Command -->
+                <div class="card">
+                    <div class="card-header">&#127760; Pack Apply Command</div>
+                    <pre><code>/weaponskin pack apply <url>
+/ws pack apply <url></code></pre>
+                    <p>Applies a resource pack from an external URL. Use this when hosting the pack on a CDN or external
+                        server.</p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Argument</th>
+                                <th>Required</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>url</code></td>
+                                <td><span class="badge badge-required">Yes</span></td>
+                                <td>The full URL to the resource pack ZIP file</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p><strong>Example:</strong></p>
+                    <pre><code>/ws pack apply https://cdn.myserver.com/packs/WeaponSkin-pack.zip</code></pre>
+                    <div class="alert alert-info">
+                        <div class="alert-title">&#128161; Tip</div>
+                        <p>Run <code>/ws pack build</code> first, then upload the generated ZIP file to your external
+                            host before using this command.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Help Command -->
+            <section>
+                <h2>&#128214; In-Game Help</h2>
+                <p>When running <code>/weaponskin</code> without arguments, a help menu is displayed:</p>
+                <pre><code>=== WeaponSkin Commands ===
+/weaponskin give <player> <skinId> [amount] - Give skin item
+/weaponskin remove <player> [amount] - Give remove-skin item
+/weaponskin remover <player> [amount] - Alias for /weaponskin remove
+/weaponskin list - View skin list
+/weaponskin reload - Reload config
+/weaponskin pack build - Build resource pack
+/weaponskin pack apply <url> - Apply pack (external-host)
+Alias: /ws can be used instead of /weaponskin</code></pre>
+            </section>
+
+            <!-- Next Steps -->
+            <section>
+                <h2>&#128214; Next Steps</h2>
+                <div class="feature-grid">
+                    <a href="permissions.html" class="feature-card" style="text-decoration: none; color: inherit;">
+                        <div class="feature-icon">&#128274;</div>
+                        <div class="feature-title">Permissions</div>
+                        <div class="feature-description">Learn about permission nodes and how to set them up.</div>
+                    </a>
+                    <a href="skins.html" class="feature-card" style="text-decoration: none; color: inherit;">
+                        <div class="feature-icon">&#127912;</div>
+                        <div class="feature-title">Custom Skins</div>
+                        <div class="feature-description">Create and add your own custom weapon skins.</div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="footer">
+                <p>
+                    WeaponSkin is licensed under the <a href="https://github.com/k4han/WeaponSkin/blob/main/LICENSE"
+                        target="_blank">MIT License</a>.
+                </p>
+                <p>
+                    <a href="https://github.com/k4han/WeaponSkin" target="_blank">GitHub</a> &#8226;
+                    <a href="https://github.com/k4han/WeaponSkin/issues" target="_blank">Report Issue</a>
+                </p>
+            </footer>
+        </main>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('open');
+        }
+    </script>
+</body>
+
+</html>

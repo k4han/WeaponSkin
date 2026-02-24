@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="WeaponSkin Permissions - Complete list of permission nodes for the plugin">
+    <title>Permissions - WeaponSkin Documentation</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <button class="menu-toggle" onclick="toggleSidebar()">&#9776;</button>
+
+    <div class="container">
+        <!-- Sidebar -->
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-logo">
+                    <span class="sidebar-logo-icon">&#9876;</span>
+                    <span class="sidebar-logo-text">WeaponSkin</span>
+                </a>
+            </div>
+            <div class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-section-title">Getting Started</div>
+                    <a href="index.html" class="nav-link">
+                        <span class="nav-link-icon">&#127968;</span>
+                        <span>Overview</span>
+                    </a>
+                    <a href="installation.html" class="nav-link">
+                        <span class="nav-link-icon">&#128229;</span>
+                        <span>Installation</span>
+                    </a>
+                    <a href="configuration.html" class="nav-link">
+                        <span class="nav-link-icon">&#9881;</span>
+                        <span>Configuration</span>
+                    </a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-section-title">Documentation</div>
+                    <a href="commands.html" class="nav-link">
+                        <span class="nav-link-icon">&#128187;</span>
+                        <span>Commands</span>
+                    </a>
+                    <a href="permissions.html" class="nav-link active">
+                        <span class="nav-link-icon">&#128274;</span>
+                        <span>Permissions</span>
+                    </a>
+                    <a href="skins.html" class="nav-link">
+                        <span class="nav-link-icon">&#127912;</span>
+                        <span>Custom Skins</span>
+                    </a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-section-title">Links</div>
+                    <a href="https://github.com/k4han/WeaponSkin" class="nav-link" target="_blank">
+                        <span class="nav-link-icon">&#128230;</span>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="https://github.com/k4han/WeaponSkin/issues" class="nav-link" target="_blank">
+                        <span class="nav-link-icon">&#128027;</span>
+                        <span>Report Issue</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="page-header">
+                <h1 class="page-title">
+                    <span>&#128274;</span>
+                    <span>Permissions</span>
+                </h1>
+                <p class="page-description">Complete list of permission nodes for controlling access to WeaponSkin
+                    commands.</p>
+            </header>
+
+            <!-- Overview -->
+            <section>
+                <h2>&#128450; Overview</h2>
+                <p>WeaponSkin uses a granular permission system that allows fine-grained control over who can use each
+                    command. All permissions default to OP (server operators) unless otherwise configured.</p>
+
+                <div class="alert alert-info">
+                    <div class="alert-title">&#128161; Tip</div>
+                    <p>The <code>weaponskin.admin</code> permission grants access to all other permissions
+                        automatically. This is useful for server administrators.</p>
+                </div>
+            </section>
+
+            <!-- Permissions Table -->
+            <section>
+                <h2>&#128203; Permission Reference</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Permission</th>
+                            <th>Description</th>
+                            <th>Default</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>weaponskin.admin</code></td>
+                            <td>Full access to all WeaponSkin commands (parent node)</td>
+                            <td><span class="badge badge-default">OP</span></td>
+                        </tr>
+                        <tr>
+                            <td><code>weaponskin.give</code></td>
+                            <td>Give skin items to players</td>
+                            <td><span class="badge badge-default">OP</span></td>
+                        </tr>
+                        <tr>
+                            <td><code>weaponskin.remove</code></td>
+                            <td>Give Skin Remover items to players</td>
+                            <td><span class="badge badge-default">OP</span></td>
+                        </tr>
+                        <tr>
+                            <td><code>weaponskin.list</code></td>
+                            <td>List all registered skins</td>
+                            <td><span class="badge badge-default">OP</span></td>
+                        </tr>
+                        <tr>
+                            <td><code>weaponskin.reload</code></td>
+                            <td>Reload configuration files</td>
+                            <td><span class="badge badge-default">OP</span></td>
+                        </tr>
+                        <tr>
+                            <td><code>weaponskin.pack</code></td>
+                            <td>Build and apply resource packs</td>
+                            <td><span class="badge badge-default">OP</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Permission Hierarchy -->
+            <section>
+                <h2>&#128202; Permission Hierarchy</h2>
+                <p>The <code>weaponskin.admin</code> permission is a parent node that automatically grants all child
+                    permissions:</p>
+
+                <div class="file-tree">
+                    <div class="file-tree-item"><span style="color: var(--accent-primary);">weaponskin.admin</span>
+                    </div>
+                    <div class="file-tree-item" style="padding-left: 1.5rem;">&#8627; weaponskin.give</div>
+                    <div class="file-tree-item" style="padding-left: 1.5rem;">&#8627; weaponskin.remove</div>
+                    <div class="file-tree-item" style="padding-left: 1.5rem;">&#8627; weaponskin.list</div>
+                    <div class="file-tree-item" style="padding-left: 1.5rem;">&#8627; weaponskin.reload</div>
+                    <div class="file-tree-item" style="padding-left: 1.5rem;">&#8627; weaponskin.pack</div>
+                </div>
+            </section>
+
+            <!-- Setting Up Permissions -->
+            <section>
+                <h2>&#9881; Setting Up Permissions</h2>
+
+                <h3>Using a Permissions Plugin</h3>
+                <p>For servers using permissions plugins like LuckPerms, PermissionsEx, or GroupManager:</p>
+
+                <div class="card">
+                    <div class="card-header">&#128272; LuckPerms Example</div>
+                    <pre><code># Give admin full access
+/lp user <player> permission set weaponskin.admin
+
+# Give moderator only give and list permissions
+/lp user <player> permission set weaponskin.give
+/lp user <player> permission set weaponskin.list
+
+# Create a group for skin management
+/lp group skinadmin permission set weaponskin.admin</code></pre>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">&#128272; PermissionsEx Example</div>
+                    <pre><code># Give admin full access
+/pex user <player> add weaponskin.admin
+
+# Give moderator only give and list permissions
+/pex user <player> add weaponskin.give
+/pex user <player> add weaponskin.list</code></pre>
+                </div>
+
+                <h3>Server Operators (OP)</h3>
+                <p>By default, all permissions are granted to server operators. To make a player an operator:</p>
+                <pre><code>/op <player></code></pre>
+                <p>To remove operator status:</p>
+                <pre><code>/deop <player></code></pre>
+            </section>
+
+            <!-- Common Scenarios -->
+            <section>
+                <h2>&#128101; Common Scenarios</h2>
+
+                <div class="card">
+                    <div class="card-header">&#128104;&#8205;&#128187; Scenario 1: Server Admin</div>
+                    <p>Full access to all commands:</p>
+                    <pre><code>weaponskin.admin</code></pre>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">&#128104;&#8205;&#128084; Scenario 2: Moderator</div>
+                    <p>Can give skins and list them, but cannot reload or build packs:</p>
+                    <pre><code>weaponskin.give
+weaponskin.remove
+weaponskin.list</code></pre>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">&#128109; Scenario 3: Support Staff</div>
+                    <p>Can only view skins and give skin removers:</p>
+                    <pre><code>weaponskin.list
+weaponskin.remove</code></pre>
+                </div>
+            </section>
+
+            <!-- Negative Permissions -->
+            <section>
+                <h2>&#128683; Negative Permissions</h2>
+                <p>With permissions plugins that support negative permissions, you can deny specific permissions even if
+                    the parent is granted:</p>
+
+                <div class="alert alert-warning">
+                    <div class="alert-title">&#9888; Note</div>
+                    <p>Not all permissions plugins support negative permissions. Check your plugin's documentation.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">&#128272; LuckPerms Example</div>
+                    <pre><code># Grant admin but deny pack building
+/lp user <player> permission set weaponskin.admin
+/lp user <player> permission set weaponskin.pack false</code></pre>
+                </div>
+            </section>
+
+            <!-- Command-Permission Mapping -->
+            <section>
+                <h2>&#128279; Command-Permission Mapping</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Command</th>
+                            <th>Required Permission</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>/ws give</code></td>
+                            <td><code>weaponskin.give</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>/ws remove</code></td>
+                            <td><code>weaponskin.remove</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>/ws remover</code></td>
+                            <td><code>weaponskin.remove</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>/ws list</code></td>
+                            <td><code>weaponskin.list</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>/ws reload</code></td>
+                            <td><code>weaponskin.reload</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>/ws pack build</code></td>
+                            <td><code>weaponskin.pack</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>/ws pack apply</code></td>
+                            <td><code>weaponskin.pack</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Next Steps -->
+            <section>
+                <h2>&#128214; Next Steps</h2>
+                <div class="feature-grid">
+                    <a href="commands.html" class="feature-card" style="text-decoration: none; color: inherit;">
+                        <div class="feature-icon">&#128187;</div>
+                        <div class="feature-title">Commands</div>
+                        <div class="feature-description">View all available commands and their usage.</div>
+                    </a>
+                    <a href="skins.html" class="feature-card" style="text-decoration: none; color: inherit;">
+                        <div class="feature-icon">&#127912;</div>
+                        <div class="feature-title">Custom Skins</div>
+                        <div class="feature-description">Create and add your own custom weapon skins.</div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="footer">
+                <p>
+                    WeaponSkin is licensed under the <a href="https://github.com/k4han/WeaponSkin/blob/main/LICENSE"
+                        target="_blank">MIT License</a>.
+                </p>
+                <p>
+                    <a href="https://github.com/k4han/WeaponSkin" target="_blank">GitHub</a> &#8226;
+                    <a href="https://github.com/k4han/WeaponSkin/issues" target="_blank">Report Issue</a>
+                </p>
+            </footer>
+        </main>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('open');
+        }
+    </script>
+</body>
+
+</html>

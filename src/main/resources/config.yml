@@ -1,0 +1,76 @@
+# ============================================
+# WeaponSkin Configuration
+# ============================================
+# Plugin apply skin to weapons via resource pack.
+# Supports 2 providers: Oraxen and item_model (1.21.4+)
+# ============================================
+
+# Prefix for all plugin messages
+prefix: "&7[&eWeaponSkin&7] "
+
+# ============================================
+# Update Checker
+# ============================================
+# Automatically check for updates on startup
+update-checker: true
+
+# ============================================
+# Language Configuration
+# ============================================
+language: en
+
+# ============================================
+# Global Sounds
+# ============================================
+# Applied to ALL skins. No per-skin override.
+apply-sound: ENTITY_PLAYER_LEVELUP
+remove-sound: ENTITY_ITEM_BREAK
+
+# ============================================
+# Provider Configuration
+# ============================================
+# Global provider applied to ALL skins.
+#
+# Options:
+#   - auto: Prefer Oraxen if available, fallback item_model (default)
+#   - oraxen: Use Oraxen provider (requires Oraxen plugin)
+#   - item_model: Use item_model component (1.21.4+) — recommended
+provider: auto
+
+# ============================================
+# Resource Pack Metadata
+# ============================================
+# Description shown in pack.mcmeta.
+pack:
+  description: "WeaponSkin resource pack"
+  namespace: "weaponskin"
+
+# ============================================
+# Auto-Host Configuration
+# ============================================
+
+# Only used when provider = item_model
+host:
+  # Enable/disable auto-host feature
+  enabled: true
+
+  # Whether accepting this resource pack is required.
+  # true: client must accept the pack
+  # false: pack request is optional
+  required: true
+
+  # Host type: "self-host" or "external-host"
+  # - self-host: Plugin runs internal HTTP server (default)
+  # - external-host: Admin uploads pack to external server/CDN
+  type: "self-host"
+
+  # External host configuration (only used when type = external-host)
+  external-host:
+    # Base URL where resource pack is hosted
+    # Example: "https://cdn.myserver.com/packs" or "https://github.com/user/repo/releases/download/v1"
+    url: "https://example.com/packs"
+
+  # Self-host configuration (only used when type = self-host)
+  self-host:
+    ip: "localhost"
+    port: 8765
