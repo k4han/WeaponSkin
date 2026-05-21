@@ -19,13 +19,20 @@ A Minecraft plugin that lets players apply and remove cosmetic skins on weapons 
 
 ---
 
+## 📚 Documentation
+
+Full documentation is available at: **[https://k4han.github.io/WeaponSkin/](https://k4han.github.io/WeaponSkin/)**
+
+---
+
 ## 📋 Requirements
 
 | Dependency | Type | Notes |
 |---|---|---|
 | [PacketEvents](https://github.com/retrooper/packetevents) | Required | For equipment packet handling |
 | [Oraxen](https://oraxen.com/) | Optional | Only needed if `provider: oraxen` |
-| Minecraft | 1.21+ | API version `1.21`, `item_model` provider requires 1.21.4+ |
+| Minecraft | 1.21.4-1.21.11, 26.1.1-26.1.2 | API version `1.21` for one-jar compatibility |
+| Java | 21+ / 25 | Java 21 for Paper 1.21.x; Java 25 required for Paper 26.1+ |
 
 ---
 
