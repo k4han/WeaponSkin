@@ -2,7 +2,7 @@
 # WeaponSkin Configuration
 # ============================================
 # Plugin apply skin to weapons via resource pack.
-# Supports 2 providers: Oraxen and item_model (1.21.4+, including 26.1.x)
+# Supports 2 providers: Oraxen and item_model (1.21.4+, including 26.x)
 # ============================================
 
 # Prefix for all plugin messages
@@ -34,7 +34,7 @@ remove-sound: ENTITY_ITEM_BREAK
 # Options:
 #   - auto: Prefer Oraxen if available, fallback item_model (default)
 #   - oraxen: Use Oraxen provider (requires Oraxen plugin)
-#   - item_model: Use item_model component (1.21.4+, including 26.1.x) — recommended
+#   - item_model: Use item_model component (1.21.4+, including 26.x) — recommended
 provider: auto
 
 # ============================================

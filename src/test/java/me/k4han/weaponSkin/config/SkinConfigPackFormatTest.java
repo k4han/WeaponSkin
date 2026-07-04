@@ -26,13 +26,15 @@ class SkinConfigPackFormatTest {
         assertEquals(84, SkinConfig.detectResourcePackFormat("26.1.1"));
         assertEquals(84, SkinConfig.detectResourcePackFormat("26.1.2"));
         assertEquals(84, SkinConfig.detectResourcePackFormat("26.1.2.build.64-stable"));
+        assertEquals(88, SkinConfig.detectResourcePackFormat("26.2"));
+        assertEquals(88, SkinConfig.detectResourcePackFormat("26.2.0"));
     }
 
     @Test
     void defaultsToLatestKnownFormatForUnknownVersions() {
-        assertEquals(84, SkinConfig.detectResourcePackFormat(null));
-        assertEquals(84, SkinConfig.detectResourcePackFormat(""));
-        assertEquals(84, SkinConfig.detectResourcePackFormat("unknown"));
-        assertEquals(84, SkinConfig.detectResourcePackFormat("27.1.0"));
+        assertEquals(88, SkinConfig.detectResourcePackFormat(null));
+        assertEquals(88, SkinConfig.detectResourcePackFormat(""));
+        assertEquals(88, SkinConfig.detectResourcePackFormat("unknown"));
+        assertEquals(88, SkinConfig.detectResourcePackFormat("27.1.0"));
     }
 }

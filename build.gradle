@@ -6,7 +6,7 @@ plugins {
 }
 
 group = 'me.k4han'
-version = '1.1.0'
+version = '1.1.1'
 
 def targetJavaVersion = 21
 def paperApiVersion = findProperty('paperApiVersion') ?: '1.21.11-R0.1-SNAPSHOT'
@@ -108,7 +108,7 @@ modrinth {
     versionName = "WeaponSkin ${resolvedReleaseVersion}"
     versionType = System.getenv("MODRINTH_VERSION_TYPE") ?: "release"
     uploadFile = tasks.shadowJar
-    gameVersions = csvEnv("MODRINTH_GAME_VERSIONS", "1.21.4,1.21.5,1.21.6,1.21.7,1.21.8,1.21.9,1.21.10,1.21.11,26.1.1,26.1.2")
+    gameVersions = csvEnv("MODRINTH_GAME_VERSIONS", "1.21.4,1.21.5,1.21.6,1.21.7,1.21.8,1.21.9,1.21.10,1.21.11,26.1.1,26.1.2,26.2")
     loaders = csvEnv("MODRINTH_LOADERS", "paper,purpur,folia")
     changelog = System.getenv("MODRINTH_CHANGELOG") ?: "See the GitHub release notes."
     debugMode = (System.getenv("MODRINTH_DEBUG") ?: "false").toBoolean()

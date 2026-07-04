@@ -18,7 +18,7 @@ import java.util.logging.Level;
 
 public class SkinConfig {
 
-    private static final int DEFAULT_RESOURCE_PACK_FORMAT = 84;
+    private static final int DEFAULT_RESOURCE_PACK_FORMAT = 88;
 
     private final WeaponSkin plugin;
     private final Map<String, SkinDefinition> skins = new HashMap<>();
@@ -78,7 +78,9 @@ public class SkinConfig {
 
         // Mojang's 2026+ version scheme starts at 26.1.x.
         if (major >= 26) {
-            return DEFAULT_RESOURCE_PACK_FORMAT;
+            if (major == 26 && minor == 1) return 84; // 26.1.x
+            if (major == 26 && minor >= 2) return 88; // 26.2+
+            return DEFAULT_RESOURCE_PACK_FORMAT;       // future versions
         }
 
         if (major != 1) {
@@ -150,7 +152,7 @@ public class SkinConfig {
     private static boolean isFutureOrUnknownVersion(int[] version) {
         int major = version[0];
         int minor = version[1];
-        return major > 26 || (major == 26 && minor > 1) || (major == 1 && minor > 21) || major != 1 && major != 26;
+        return major > 26 || (major == 26 && minor > 2) || (major == 1 && minor > 21) || major != 1 && major != 26;
     }
 
     public void load() {
