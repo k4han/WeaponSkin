@@ -33,6 +33,7 @@ public class CommandManager implements CommandExecutor, TabCompleter {
 
     private void registerSubCommands(SkinManager skinManager, ItemService itemService, PackService packService) {
         register(new GiveCommand(languageManager, skinConfig, itemService));
+        register(new GiveWeaponCommand(languageManager, skinConfig, itemService, skinManager));
         register(new RemoveCommand(languageManager, skinConfig, itemService));
         register(new ListCommand(languageManager, skinConfig));
         register(new ReloadCommand(languageManager, skinConfig, skinManager, packService));

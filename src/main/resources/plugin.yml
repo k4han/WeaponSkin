@@ -12,7 +12,7 @@ softdepend:
 commands:
   weaponskin:
     description: WeaponSkin main command
-    usage: /weaponskin <give|remove|remover|list|reload|pack> ...
+    usage: /weaponskin <give|giveweapon|remove|remover|list|reload|pack> ...
     aliases: [ws]
     permission: weaponskin.admin
 
@@ -22,12 +22,16 @@ permissions:
     default: op
     children:
       weaponskin.give: true
+      weaponskin.giveweapon: true
       weaponskin.remove: true
       weaponskin.list: true
       weaponskin.reload: true
       weaponskin.pack: true
   weaponskin.give:
     description: Give skin items
+    default: op
+  weaponskin.giveweapon:
+    description: Give pre-skinned weapons directly
     default: op
   weaponskin.remove:
     description: Give remover items

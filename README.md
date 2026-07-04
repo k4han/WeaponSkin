@@ -151,6 +151,7 @@ Then register the skin in `skins.yml` and run `/weaponskin pack build` (or `/ws 
 | Command | Description |
 |---|---|
 | `/weaponskin give <player> <skinId> [amount]` | Give a skin item to a player |
+| `/weaponskin giveweapon <player> <skinId> [material] [amount]` | Give a pre-skinned weapon directly (skip drag-and-drop). If `material` is omitted, the skin's first allowed material is used. |
 | `/weaponskin remove <player> [amount]` | Give a Skin Remover item to a player |
 | `/weaponskin remover <player> [amount]` | Alias for `/weaponskin remove` |
 | `/weaponskin list` | List all registered skins |
@@ -168,6 +169,7 @@ Then register the skin in `skins.yml` and run `/weaponskin pack build` (or `/ws 
 |---|---|---|
 | `weaponskin.admin` | Full access to all commands (parent node) | OP |
 | `weaponskin.give` | Give skin items | OP |
+| `weaponskin.giveweapon` | Give pre-skinned weapons directly | OP |
 | `weaponskin.remove` | Give remover items | OP |
 | `weaponskin.list` | List all skins | OP |
 | `weaponskin.reload` | Reload configuration | OP |

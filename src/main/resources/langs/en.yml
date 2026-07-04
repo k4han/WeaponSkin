@@ -12,6 +12,13 @@ commands:
     success: "&aGave &e{amount} &askin item &e{skinId} &ato &e{player}"
     receive: "&aYou received &e{amount} &askin item: &e{skinId}"
   
+  giveweapon:
+    success: "&aGave &e{amount} &apre-skinned weapon &e{skinId} &7(&b{material}&7) &ato &e{player}"
+    receive: "&aYou received &e{amount} &apre-skinned weapon: &e{skinId} &7(&b{material}&7)"
+    no-materials: "&cSkin &e{skinId} &chas no allowed materials in config!"
+    invalid-material: "&cMaterial &e{material} &cis not allowed for skin &e{skinId}&c!"
+    fail: "&cCould not give pre-skinned weapon &e{skinId} &cto &e{player}&c. Check inventory and console logs."
+  
   remove:
     success: "&aGave &e{amount} &aSkin Remover to &e{player}"
     receive: "&aYou received &e{amount} &aSkin Remover!"
@@ -52,6 +59,7 @@ commands:
   help:
     header: "&6=== WeaponSkin Commands ==="
     give: "&e/weaponskin give <player> <skinId> [amount] &7- Give skin item"
+    giveweapon: "&e/weaponskin giveweapon <player> <skinId> [material] [amount] &7- Give pre-skinned weapon"
     remove: "&e/weaponskin remove <player> [amount] &7- Give remove-skin item"
     remover: "&e/weaponskin remover <player> [amount] &7- Alias for /weaponskin remove"
     list: "&e/weaponskin list &7- View skin list"

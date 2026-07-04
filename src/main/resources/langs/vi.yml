@@ -12,6 +12,13 @@ commands:
     success: "&aĐã give &e{amount} &askin item &e{skinId} &acho &e{player}"
     receive: "&aBạn nhận được &e{amount} &askin item: &e{skinId}"
   
+  giveweapon:
+    success: "&aĐã give &e{amount} &avũ khí đã lắp skin &e{skinId} &7(&b{material}&7) &acho &e{player}"
+    receive: "&aBạn nhận được &e{amount} &avũ khí đã lắp skin: &e{skinId} &7(&b{material}&7)"
+    no-materials: "&cSkin &e{skinId} &ckhông có material nào được phép trong config!"
+    invalid-material: "&cMaterial &e{material} &ckhông thuộc skin &e{skinId}&c!"
+    fail: "&cKhông thể give vũ khí đã lắp skin &e{skinId} &ccho &e{player}&c. Kiểm tra inventory và log server."
+  
   remove:
     success: "&aĐã give &e{amount} &aremover cho &e{player}"
     receive: "&aBạn nhận được &e{amount} &aSkin Remover!"
@@ -52,6 +59,7 @@ commands:
   help:
     header: "&6=== WeaponSkin Commands ==="
     give: "&e/weaponskin give <player> <skinId> [amount] &7- Give skin item"
+    giveweapon: "&e/weaponskin giveweapon <player> <skinId> [material] [amount] &7- Give vũ khí đã lắp skin sẵn"
     remove: "&e/weaponskin remove <player> [amount] &7- Give remove-skin item"
     remover: "&e/weaponskin remover <player> [amount] &7- Alias của /weaponskin remove"
     list: "&e/weaponskin list &7- Xem danh sách skin"

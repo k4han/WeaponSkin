@@ -10,6 +10,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.List;
+import java.util.function.Supplier;
 
 public class ItemService {
 
@@ -59,11 +60,23 @@ public class ItemService {
     }
 
     private int giveItem(Player player, ItemStack template, int amount) {
+        return giveItems(player, () -> template.clone(), amount);
+    }
+
+    /**
+     * Give items produced by a per-unit factory. Used when each item must be
+     * generated independently (e.g. pre-skinned weapons where applySkin() returns
+     * a fresh ItemStack every call).
+     *
+     * @return number of items successfully delivered to the inventory
+     */
+    public int giveItems(Player player, Supplier<ItemStack> factory, int amount) {
         int remaining = Math.max(1, amount);
         int given = 0;
 
         while (remaining > 0) {
-            ItemStack item = template.clone();
+            ItemStack item = factory.get();
+            if (item == null) break;
             int maxStack = item.getMaxStackSize();
             int stackAmount = Math.min(remaining, maxStack);
             item.setAmount(stackAmount);

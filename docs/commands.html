@@ -107,6 +107,11 @@
                             <td><code>weaponskin.give</code></td>
                         </tr>
                         <tr>
+                            <td><code>/weaponskin giveweapon <player> <skinId> [material] [amount]</code></td>
+                            <td>Give a pre-skinned weapon directly to a player</td>
+                            <td><code>weaponskin.giveweapon</code></td>
+                        </tr>
+                        <tr>
                             <td><code>/weaponskin remove <player> [amount]</code></td>
                             <td>Give a Skin Remover item to a player</td>
                             <td><code>weaponskin.remove</code></td>
@@ -180,6 +185,52 @@
                     <pre><code>/ws give Steve leaf_weapon
 /ws give Steve leaf_weapon 5
 /weaponskin give Alex rivers_of_blood 3</code></pre>
+                </div>
+
+                <!-- GiveWeapon Command -->
+                <div class="card">
+                    <div class="card-header">&#9876; GiveWeapon Command</div>
+                    <pre><code>/weaponskin giveweapon <player> <skinId> [material] [amount]
+/ws giveweapon <player> <skinId> [material] [amount]</code></pre>
+                    <p>Gives a pre-skinned weapon directly to the specified player, skipping the drag-and-drop step.
+                        Each unit is produced with the proper item_model component and skin_id PDC so it is ready to
+                        use immediately.</p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Argument</th>
+                                <th>Required</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>player</code></td>
+                                <td><span class="badge badge-required">Yes</span></td>
+                                <td>The name of the player to receive the weapon</td>
+                            </tr>
+                            <tr>
+                                <td><code>skinId</code></td>
+                                <td><span class="badge badge-required">Yes</span></td>
+                                <td>The ID of the skin (as defined in skins.yml)</td>
+                            </tr>
+                            <tr>
+                                <td><code>material</code></td>
+                                <td><span class="badge badge-optional">No</span></td>
+                                <td>Weapon material such as <code>DIAMOND_SWORD</code> or <code>NETHERITE_SWORD</code>.
+                                    If omitted, the skin's first allowed material is used.</td>
+                            </tr>
+                            <tr>
+                                <td><code>amount</code></td>
+                                <td><span class="badge badge-optional">No</span></td>
+                                <td>Number of weapons to give (default: 1)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p><strong>Examples:</strong></p>
+                    <pre><code>/ws giveweapon Steve leaf_weapon
+/ws giveweapon Steve leaf_weapon DIAMOND_SWORD 3
+/weaponskin giveweapon Alex rivers_of_blood NETHERITE_SWORD</code></pre>
                 </div>
 
                 <!-- Remove Command -->
